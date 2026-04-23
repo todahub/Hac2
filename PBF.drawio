@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="PBS" id="lk5ryVPkbSlLCroWqSFk">
-    <mxGraphModel dx="803" dy="556" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3213" dy="2223" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -29,43 +29,40 @@
           <mxGeometry height="50" width="230" x="860" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-189" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3 演奏動作表現" vertex="1">
-          <mxGeometry height="60" width="230" x="1290" y="260" as="geometry" />
+          <mxGeometry height="60" width="230" x="1250" y="260" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-190" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3.1 手の動き機構" vertex="1">
-          <mxGeometry height="50" width="230" x="1160" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="1120" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-191" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3.2 動作制御信号" vertex="1">
-          <mxGeometry height="50" width="230" x="1420" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-192" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2. 楽器音再生部" vertex="1">
-          <mxGeometry height="60" width="230" x="2890" y="140" as="geometry" />
+          <mxGeometry height="50" width="230" x="1380" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-193" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1 ドラム音再生" vertex="1">
-          <mxGeometry height="60" width="230" x="2070" y="260" as="geometry" />
+          <mxGeometry height="60" width="230" x="2017" y="260" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-194" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.1 Arduino（ドラム用）" vertex="1">
-          <mxGeometry height="50" width="230" x="1810" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="1640" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-195" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.2 ドラム波形データ" vertex="1">
-          <mxGeometry height="50" width="230" x="2070" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="1900" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-196" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.3 再生スケッチ" vertex="1">
-          <mxGeometry height="50" width="230" x="2330" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="2160" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-197" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2 楽器音再生ユニット（各楽器）" vertex="1">
-          <mxGeometry height="60" width="230" x="2890" y="260" as="geometry" />
+          <mxGeometry height="60" width="230" x="2910" y="260" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-198" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.1 Arduino（各楽器）" vertex="1">
-          <mxGeometry height="50" width="230" x="2630" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="2650" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-199" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.2 波形データ（Processing生成）" vertex="1">
-          <mxGeometry height="50" width="230" x="2890" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="2910" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-200" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.3 再生スケッチ" vertex="1">
-          <mxGeometry height="50" width="230" x="3150" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="3160" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-201" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.3 音声出力" vertex="1">
-          <mxGeometry height="60" width="230" x="3710" y="260" as="geometry" />
+          <mxGeometry height="60" width="230" x="3830" y="260" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-205" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3. 輪唱制御部" vertex="1">
           <mxGeometry height="60" width="230" x="4920" y="140" as="geometry" />
@@ -184,8 +181,10 @@
         <mxCell id="k885kA60mdbgfZntQND9-243" edge="1" parent="1" source="k885kA60mdbgfZntQND9-181" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-182">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-244" edge="1" parent="1" source="k885kA60mdbgfZntQND9-181" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-192">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="k885kA60mdbgfZntQND9-244" edge="1" parent="1" source="k885kA60mdbgfZntQND9-181" style="endArrow=none;html=1;rounded=0;edgeStyle=none;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3120" y="163.99791231732775" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-245" edge="1" parent="1" source="k885kA60mdbgfZntQND9-181" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-205">
           <mxGeometry relative="1" as="geometry" />
@@ -226,14 +225,15 @@
         <mxCell id="k885kA60mdbgfZntQND9-257" edge="1" parent="1" source="k885kA60mdbgfZntQND9-189" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-191">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-258" edge="1" parent="1" source="k885kA60mdbgfZntQND9-192" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-193">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="k885kA60mdbgfZntQND9-258" edge="1" parent="1" source="k885kA60mdbgfZntQND9-315" style="endArrow=none;html=1;rounded=0;edgeStyle=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="k885kA60mdbgfZntQND9-193">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2890" y="185.80756013745713" as="sourcePoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-259" edge="1" parent="1" source="k885kA60mdbgfZntQND9-192" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-197">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-260" edge="1" parent="1" source="k885kA60mdbgfZntQND9-192" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-201">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="k885kA60mdbgfZntQND9-260" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-201">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3120" y="186.82926829268285" as="sourcePoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-261" edge="1" parent="1" source="k885kA60mdbgfZntQND9-193" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-194">
           <mxGeometry relative="1" as="geometry" />
@@ -380,49 +380,49 @@
           <mxGeometry height="50" width="230" x="860" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-312" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3 動作表現機構" vertex="1">
-          <mxGeometry height="60" width="230" x="1290" y="260" as="geometry" />
+          <mxGeometry height="60" width="230" x="1250" y="260" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-313" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3.1 カエルの動作機構" vertex="1">
-          <mxGeometry height="50" width="230" x="1160" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="1120" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-314" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3.2 動作制御信号" vertex="1">
-          <mxGeometry height="50" width="230" x="1420" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="1380" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-315" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2. 楽器音再生部" vertex="1">
-          <mxGeometry height="60" width="230" x="2890" y="140" as="geometry" />
+          <mxGeometry height="60" width="230" x="2910" y="140" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-316" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1 ドラム音再生" vertex="1">
-          <mxGeometry height="60" width="230" x="2070" y="260" as="geometry" />
+          <mxGeometry height="60" width="230" x="2017" y="260" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-317" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.1 Arduino（ドラム用）" vertex="1">
-          <mxGeometry height="50" width="230" x="1810" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="1640" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-318" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.2 ドラム用波形データ" vertex="1">
-          <mxGeometry height="50" width="230" x="2070" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="1900" y="380" as="geometry" />
         </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-319" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.3 再生スケッチ" vertex="1">
-          <mxGeometry height="50" width="230" x="2330" y="380" as="geometry" />
+        <mxCell id="k885kA60mdbgfZntQND9-319" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.4ドラム演奏" vertex="1">
+          <mxGeometry height="50" width="230" x="2400" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-320" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2 楽器音再生" vertex="1">
-          <mxGeometry height="60" width="230" x="2890" y="260" as="geometry" />
+          <mxGeometry height="60" width="230" x="2910" y="260" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-321" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.1 Arduino（各楽器）" vertex="1">
-          <mxGeometry height="50" width="230" x="2630" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="2650" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-322" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.2 波形データ（Processing生成）" vertex="1">
-          <mxGeometry height="50" width="230" x="2890" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="2910" y="380" as="geometry" />
         </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-323" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.3 再生スケッチ" vertex="1">
-          <mxGeometry height="50" width="230" x="3150" y="380" as="geometry" />
+        <mxCell id="k885kA60mdbgfZntQND9-323" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.4 各楽器演奏データ" vertex="1">
+          <mxGeometry height="50" width="230" x="3410" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-324" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.3 音声出力回路" vertex="1">
-          <mxGeometry height="60" width="230" x="3710" y="260" as="geometry" />
+          <mxGeometry height="60" width="230" x="3830" y="260" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-325" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.3.1 PWM出力設定" vertex="1">
-          <mxGeometry height="50" width="230" x="3540" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="3660" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-326" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.3.2 スピーカー接続" vertex="1">
-          <mxGeometry height="50" width="230" x="3890" y="380" as="geometry" />
+          <mxGeometry height="50" width="230" x="4010" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-328" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3. 輪唱制御部" vertex="1">
           <mxGeometry height="60" width="230" x="4920" y="140" as="geometry" />
@@ -457,7 +457,7 @@
         <mxCell id="k885kA60mdbgfZntQND9-338" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.1 入力装置" vertex="1">
           <mxGeometry height="60" width="230" x="6000" y="260" as="geometry" />
         </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-339" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.1.1 可変抵抗（つまみ）" vertex="1">
+        <mxCell id="k885kA60mdbgfZntQND9-339" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.1.1 可変抵抗" vertex="1">
           <mxGeometry height="50" width="230" x="5870" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-340" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.1.2 アナログ入力回路" vertex="1">
@@ -478,7 +478,7 @@
         <mxCell id="k885kA60mdbgfZntQND9-345" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.3.1 ドラム再生速度更新" vertex="1">
           <mxGeometry height="50" width="230" x="6990" y="380" as="geometry" />
         </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-346" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.3.2 BPM送信トリガ" vertex="1">
+        <mxCell id="k885kA60mdbgfZntQND9-346" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.3.2 BPM送信処理" vertex="1">
           <mxGeometry height="50" width="230" x="7250" y="380" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-347" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5. 通信部" vertex="1">
@@ -583,13 +583,7 @@
         <mxCell id="k885kA60mdbgfZntQND9-380" edge="1" parent="1" source="k885kA60mdbgfZntQND9-312" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-314">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-381" edge="1" parent="1" source="k885kA60mdbgfZntQND9-315" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-316">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-382" edge="1" parent="1" source="k885kA60mdbgfZntQND9-315" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-320">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-383" edge="1" parent="1" source="k885kA60mdbgfZntQND9-315" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-324">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-384" edge="1" parent="1" source="k885kA60mdbgfZntQND9-316" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-317">
@@ -598,8 +592,10 @@
         <mxCell id="k885kA60mdbgfZntQND9-385" edge="1" parent="1" source="k885kA60mdbgfZntQND9-316" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-318">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-386" edge="1" parent="1" source="k885kA60mdbgfZntQND9-316" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-319">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="k885kA60mdbgfZntQND9-386" edge="1" parent="1" source="k885kA60mdbgfZntQND9-316" style="endArrow=none;html=1;rounded=0;edgeStyle=none;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="k885kA60mdbgfZntQND9-319">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2390.2608695652175" y="380" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="k885kA60mdbgfZntQND9-387" edge="1" parent="1" source="k885kA60mdbgfZntQND9-320" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-321">
           <mxGeometry relative="1" as="geometry" />
