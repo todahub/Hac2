@@ -1,720 +1,720 @@
-<mxfile host="app.diagrams.net">
-  <diagram name="PBS" id="lk5ryVPkbSlLCroWqSFk">
-    <mxGraphModel dx="3213" dy="2223" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="k885kA60mdbgfZntQND9-181" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="0. カエルの輪唱演奏システム" vertex="1">
-          <mxGeometry height="50" width="300" x="5250" y="20" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-182" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1. 演奏表示部" vertex="1">
-          <mxGeometry height="60" width="230" x="730" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-183" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.1 カエル人形" vertex="1">
-          <mxGeometry height="60" width="230" x="170" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-184" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.1.1 本体構造" vertex="1">
-          <mxGeometry height="50" width="230" x="40" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-185" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.1.2 外装デザイン" vertex="1">
-          <mxGeometry height="50" width="230" x="300" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-186" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.2 楽器保持構造" vertex="1">
-          <mxGeometry height="60" width="230" x="730" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-187" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.2.1 ドラム保持パーツ" vertex="1">
-          <mxGeometry height="50" width="230" x="600" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-188" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.2.2 各楽器保持パーツ" vertex="1">
-          <mxGeometry height="50" width="230" x="860" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-189" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3 演奏動作表現" vertex="1">
-          <mxGeometry height="60" width="230" x="1250" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-190" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3.1 手の動き機構" vertex="1">
-          <mxGeometry height="50" width="230" x="1120" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-191" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3.2 動作制御信号" vertex="1">
-          <mxGeometry height="50" width="230" x="1380" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-193" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1 ドラム音再生" vertex="1">
-          <mxGeometry height="60" width="230" x="2017" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-194" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.1 Arduino（ドラム用）" vertex="1">
-          <mxGeometry height="50" width="230" x="1640" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-195" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.2 ドラム波形データ" vertex="1">
-          <mxGeometry height="50" width="230" x="1900" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-196" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.3 再生スケッチ" vertex="1">
-          <mxGeometry height="50" width="230" x="2160" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-197" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2 楽器音再生ユニット（各楽器）" vertex="1">
-          <mxGeometry height="60" width="230" x="2910" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-198" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.1 Arduino（各楽器）" vertex="1">
-          <mxGeometry height="50" width="230" x="2650" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-199" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.2 波形データ（Processing生成）" vertex="1">
-          <mxGeometry height="50" width="230" x="2910" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-200" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.3 再生スケッチ" vertex="1">
-          <mxGeometry height="50" width="230" x="3160" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-201" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.3 音声出力" vertex="1">
-          <mxGeometry height="60" width="230" x="3830" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-205" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3. 輪唱制御部" vertex="1">
-          <mxGeometry height="60" width="230" x="4920" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-206" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.1 輪唱タイミング制御" vertex="1">
-          <mxGeometry height="60" width="230" x="4490" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-207" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.1.1 開始遅延設定" vertex="1">
-          <mxGeometry height="50" width="230" x="4360" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-208" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.1.2 再生開始制御" vertex="1">
-          <mxGeometry height="50" width="230" x="4620" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-209" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.2 再生順序制御" vertex="1">
-          <mxGeometry height="60" width="230" x="4920" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-210" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.2.1 楽器ごとの開始タイミング" vertex="1">
-          <mxGeometry height="50" width="230" x="4920" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-211" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.3 テンポ追従制御" vertex="1">
-          <mxGeometry height="60" width="230" x="5350" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-212" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.3.1 BPM取得処理コード" vertex="1">
-          <mxGeometry height="50" width="230" x="5220" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-213" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.3.2 再生速度調整ロジック" vertex="1">
-          <mxGeometry height="50" width="230" x="5480" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-214" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4. テンポ操作部" vertex="1">
-          <mxGeometry height="60" width="230" x="6560" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-215" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.1 入力装置" vertex="1">
-          <mxGeometry height="60" width="230" x="6000" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-216" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.1.1 可変抵抗" vertex="1">
-          <mxGeometry height="50" width="230" x="5870" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-217" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.1.2 アナログ入力回路" vertex="1">
-          <mxGeometry height="50" width="230" x="6130" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-218" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.2 BPM算出" vertex="1">
-          <mxGeometry height="60" width="230" x="6560" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-219" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.2.1 アナログ値取得コード" vertex="1">
-          <mxGeometry height="50" width="230" x="6430" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-220" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.2.2 BPM変換処理コード" vertex="1">
-          <mxGeometry height="50" width="230" x="6690" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-221" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.3 テンポ反映" vertex="1">
-          <mxGeometry height="60" width="230" x="7120" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-222" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.3.1 ドラム再生速度更新コード" vertex="1">
-          <mxGeometry height="50" width="230" x="6990" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-223" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.3.2 BPM送信トリガ" vertex="1">
-          <mxGeometry height="50" width="230" x="7250" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-224" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5. 通信部" vertex="1">
-          <mxGeometry height="60" width="230" x="8330" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-225" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.1 ドラム側" vertex="1">
-          <mxGeometry height="60" width="230" x="7770" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-226" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.1.1 BPM送信処理コード" vertex="1">
-          <mxGeometry height="50" width="230" x="7640" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-227" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.1.2 通信フォーマット定義" vertex="1">
-          <mxGeometry height="50" width="230" x="7900" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-228" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.2 受信側" vertex="1">
-          <mxGeometry height="60" width="230" x="8330" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-229" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.2.1 BPM受信処理コード" vertex="1">
-          <mxGeometry height="50" width="230" x="8200" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-230" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.2.2 データパース処理コード" vertex="1">
-          <mxGeometry height="50" width="230" x="8460" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-231" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.3 同期制御" vertex="1">
-          <mxGeometry height="60" width="230" x="8890" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-232" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.3.1 タイミング補正ロジック" vertex="1">
-          <mxGeometry height="50" width="230" x="8760" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-233" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.3.2 遅延調整パラメータ" vertex="1">
-          <mxGeometry height="50" width="230" x="9020" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-234" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6. 音生成基盤" vertex="1">
-          <mxGeometry height="60" width="230" x="9970" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-235" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.1 Processing" vertex="1">
-          <mxGeometry height="60" width="230" x="9540" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-236" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.1.1 波形生成コード" vertex="1">
-          <mxGeometry height="50" width="230" x="9410" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-237" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.1.2 出力データ生成コード" vertex="1">
-          <mxGeometry height="50" width="230" x="9670" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-238" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.2 データ変換" vertex="1">
-          <mxGeometry height="60" width="230" x="9970" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-239" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.2.1 Arduino用配列変換コード" vertex="1">
-          <mxGeometry height="50" width="230" x="9970" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-240" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.3 再生制御" vertex="1">
-          <mxGeometry height="60" width="230" x="10400" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-241" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.3.1 再生ループ処理コード" vertex="1">
-          <mxGeometry height="50" width="230" x="10270" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-242" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.3.2 割り込み制御コード（必要なら）" vertex="1">
-          <mxGeometry height="50" width="230" x="10530" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-243" edge="1" parent="1" source="k885kA60mdbgfZntQND9-181" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-182">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-244" edge="1" parent="1" source="k885kA60mdbgfZntQND9-181" style="endArrow=none;html=1;rounded=0;edgeStyle=none;">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="3120" y="163.99791231732775" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-245" edge="1" parent="1" source="k885kA60mdbgfZntQND9-181" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-205">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-246" edge="1" parent="1" source="k885kA60mdbgfZntQND9-181" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-214">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-247" edge="1" parent="1" source="k885kA60mdbgfZntQND9-181" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-224">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-248" edge="1" parent="1" source="k885kA60mdbgfZntQND9-181" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-234">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-249" edge="1" parent="1" source="k885kA60mdbgfZntQND9-182" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-183">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-250" edge="1" parent="1" source="k885kA60mdbgfZntQND9-182" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-186">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-251" edge="1" parent="1" source="k885kA60mdbgfZntQND9-182" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-189">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-252" edge="1" parent="1" source="k885kA60mdbgfZntQND9-183" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-184">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-253" edge="1" parent="1" source="k885kA60mdbgfZntQND9-183" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-185">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-254" edge="1" parent="1" source="k885kA60mdbgfZntQND9-186" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-187">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-255" edge="1" parent="1" source="k885kA60mdbgfZntQND9-186" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-188">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-256" edge="1" parent="1" source="k885kA60mdbgfZntQND9-189" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-190">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-257" edge="1" parent="1" source="k885kA60mdbgfZntQND9-189" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-191">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-258" edge="1" parent="1" source="k885kA60mdbgfZntQND9-315" style="endArrow=none;html=1;rounded=0;edgeStyle=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="k885kA60mdbgfZntQND9-193">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="2890" y="185.80756013745713" as="sourcePoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-260" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-201">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="3120" y="186.82926829268285" as="sourcePoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-261" edge="1" parent="1" source="k885kA60mdbgfZntQND9-193" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-194">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-262" edge="1" parent="1" source="k885kA60mdbgfZntQND9-193" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-195">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-263" edge="1" parent="1" source="k885kA60mdbgfZntQND9-193" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-196">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-264" edge="1" parent="1" source="k885kA60mdbgfZntQND9-197" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-198">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-265" edge="1" parent="1" source="k885kA60mdbgfZntQND9-197" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-199">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-266" edge="1" parent="1" source="k885kA60mdbgfZntQND9-197" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-200">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-270" edge="1" parent="1" source="k885kA60mdbgfZntQND9-205" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-206">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-271" edge="1" parent="1" source="k885kA60mdbgfZntQND9-205" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-209">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-272" edge="1" parent="1" source="k885kA60mdbgfZntQND9-205" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-211">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-273" edge="1" parent="1" source="k885kA60mdbgfZntQND9-206" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-207">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-274" edge="1" parent="1" source="k885kA60mdbgfZntQND9-206" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-208">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-275" edge="1" parent="1" source="k885kA60mdbgfZntQND9-209" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-210">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-276" edge="1" parent="1" source="k885kA60mdbgfZntQND9-211" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-212">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-277" edge="1" parent="1" source="k885kA60mdbgfZntQND9-211" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-213">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-278" edge="1" parent="1" source="k885kA60mdbgfZntQND9-214" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-215">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-279" edge="1" parent="1" source="k885kA60mdbgfZntQND9-214" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-218">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-280" edge="1" parent="1" source="k885kA60mdbgfZntQND9-214" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-221">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-281" edge="1" parent="1" source="k885kA60mdbgfZntQND9-215" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-216">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-282" edge="1" parent="1" source="k885kA60mdbgfZntQND9-215" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-217">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-283" edge="1" parent="1" source="k885kA60mdbgfZntQND9-218" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-219">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-284" edge="1" parent="1" source="k885kA60mdbgfZntQND9-218" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-220">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-285" edge="1" parent="1" source="k885kA60mdbgfZntQND9-221" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-222">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-286" edge="1" parent="1" source="k885kA60mdbgfZntQND9-221" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-223">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-287" edge="1" parent="1" source="k885kA60mdbgfZntQND9-224" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-225">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-288" edge="1" parent="1" source="k885kA60mdbgfZntQND9-224" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-228">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-289" edge="1" parent="1" source="k885kA60mdbgfZntQND9-224" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-231">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-290" edge="1" parent="1" source="k885kA60mdbgfZntQND9-225" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-226">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-291" edge="1" parent="1" source="k885kA60mdbgfZntQND9-225" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-227">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-292" edge="1" parent="1" source="k885kA60mdbgfZntQND9-228" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-229">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-293" edge="1" parent="1" source="k885kA60mdbgfZntQND9-228" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-230">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-294" edge="1" parent="1" source="k885kA60mdbgfZntQND9-231" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-232">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-295" edge="1" parent="1" source="k885kA60mdbgfZntQND9-231" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-233">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-296" edge="1" parent="1" source="k885kA60mdbgfZntQND9-234" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-235">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-297" edge="1" parent="1" source="k885kA60mdbgfZntQND9-234" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-238">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-298" edge="1" parent="1" source="k885kA60mdbgfZntQND9-234" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-240">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-299" edge="1" parent="1" source="k885kA60mdbgfZntQND9-235" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-236">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-300" edge="1" parent="1" source="k885kA60mdbgfZntQND9-235" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-237">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-301" edge="1" parent="1" source="k885kA60mdbgfZntQND9-238" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-239">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-302" edge="1" parent="1" source="k885kA60mdbgfZntQND9-240" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-241">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-303" edge="1" parent="1" source="k885kA60mdbgfZntQND9-240" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-242">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-304" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="0. カエルの輪唱演奏システム" vertex="1">
-          <mxGeometry height="50" width="300" x="5250" y="20" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-305" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1. 演奏表示部" vertex="1">
-          <mxGeometry height="60" width="230" x="730" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-306" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.1 カエル人形" vertex="1">
-          <mxGeometry height="60" width="230" x="170" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-307" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.1.1 本体構造" vertex="1">
-          <mxGeometry height="50" width="230" x="40" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-308" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.1.2 外装デザイン" vertex="1">
-          <mxGeometry height="50" width="230" x="300" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-309" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.2 楽器保持構造" vertex="1">
-          <mxGeometry height="60" width="230" x="730" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-310" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.2.1 ドラム保持パーツ" vertex="1">
-          <mxGeometry height="50" width="230" x="600" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-311" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.2.2 各楽器保持パーツ" vertex="1">
-          <mxGeometry height="50" width="230" x="860" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-312" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3 動作表現機構" vertex="1">
-          <mxGeometry height="60" width="230" x="1250" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-313" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3.1 カエルの動作機構" vertex="1">
-          <mxGeometry height="50" width="230" x="1120" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-314" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="1.3.2 動作制御信号" vertex="1">
-          <mxGeometry height="50" width="230" x="1380" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-315" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2. 楽器音再生部" vertex="1">
-          <mxGeometry height="60" width="230" x="2910" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-316" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1 ドラム音再生" vertex="1">
-          <mxGeometry height="60" width="230" x="2017" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-317" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.1 Arduino（ドラム用）" vertex="1">
-          <mxGeometry height="50" width="230" x="1640" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-318" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.2 ドラム用波形データ" vertex="1">
-          <mxGeometry height="50" width="230" x="1900" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-319" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.1.4ドラム演奏" vertex="1">
-          <mxGeometry height="50" width="230" x="2400" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-320" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2 楽器音再生" vertex="1">
-          <mxGeometry height="60" width="230" x="2910" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-321" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.1 Arduino（各楽器）" vertex="1">
-          <mxGeometry height="50" width="230" x="2650" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-322" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.2 波形データ（Processing生成）" vertex="1">
-          <mxGeometry height="50" width="230" x="2910" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-323" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.2.4 各楽器演奏データ" vertex="1">
-          <mxGeometry height="50" width="230" x="3410" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-324" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.3 音声出力回路" vertex="1">
-          <mxGeometry height="60" width="230" x="3830" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-325" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.3.1 PWM出力設定" vertex="1">
-          <mxGeometry height="50" width="230" x="3660" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-326" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="2.3.2 スピーカー接続" vertex="1">
-          <mxGeometry height="50" width="230" x="4010" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-328" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3. 輪唱制御部" vertex="1">
-          <mxGeometry height="60" width="230" x="4920" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-329" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.1 再生タイミング制御プログラム" vertex="1">
-          <mxGeometry height="60" width="230" x="4490" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-330" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.1.1 開始遅延設定" vertex="1">
-          <mxGeometry height="50" width="230" x="4360" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-331" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.1.2 再生開始処理" vertex="1">
-          <mxGeometry height="50" width="230" x="4620" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-332" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.2 再生順序制御ロジック" vertex="1">
-          <mxGeometry height="60" width="230" x="4920" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-333" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.2.1 楽器ごとの開始タイミング設定" vertex="1">
-          <mxGeometry height="50" width="230" x="4920" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-334" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.3 再生速度制御プログラム" vertex="1">
-          <mxGeometry height="60" width="230" x="5350" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-335" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.3.1 BPM受信値の反映" vertex="1">
-          <mxGeometry height="50" width="230" x="5220" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-336" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="3.3.2 再生間隔調整処理" vertex="1">
-          <mxGeometry height="50" width="230" x="5480" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-337" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4. テンポ操作部" vertex="1">
-          <mxGeometry height="60" width="230" x="6560" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-338" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.1 入力装置" vertex="1">
-          <mxGeometry height="60" width="230" x="6000" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-339" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.1.1 可変抵抗" vertex="1">
-          <mxGeometry height="50" width="230" x="5870" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-340" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.1.2 アナログ入力回路" vertex="1">
-          <mxGeometry height="50" width="230" x="6130" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-341" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.2 BPM計算プログラム" vertex="1">
-          <mxGeometry height="60" width="230" x="6560" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-342" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.2.1 アナログ値取得処理" vertex="1">
-          <mxGeometry height="50" width="230" x="6430" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-343" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.2.2 BPM変換処理" vertex="1">
-          <mxGeometry height="50" width="230" x="6690" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-344" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.3 テンポ反映処理" vertex="1">
-          <mxGeometry height="60" width="230" x="7120" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-345" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.3.1 ドラム再生速度更新" vertex="1">
-          <mxGeometry height="50" width="230" x="6990" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-346" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="4.3.2 BPM送信処理" vertex="1">
-          <mxGeometry height="50" width="230" x="7250" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-347" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5. 通信部" vertex="1">
-          <mxGeometry height="60" width="230" x="8330" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-348" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.1 ドラム側通信プログラム" vertex="1">
-          <mxGeometry height="60" width="230" x="7770" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-349" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.1.1 BPM送信処理" vertex="1">
-          <mxGeometry height="50" width="230" x="7640" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-350" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.1.2 通信フォーマット定義" vertex="1">
-          <mxGeometry height="50" width="230" x="7900" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-351" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.2 受信側通信プログラム" vertex="1">
-          <mxGeometry height="60" width="230" x="8330" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-352" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.2.1 BPM受信処理" vertex="1">
-          <mxGeometry height="50" width="230" x="8200" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-353" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.2.2 データ解析処理" vertex="1">
-          <mxGeometry height="50" width="230" x="8460" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-354" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.3 同期補正処理" vertex="1">
-          <mxGeometry height="60" width="230" x="8890" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-355" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.3.1 タイミング補正ロジック" vertex="1">
-          <mxGeometry height="50" width="230" x="8760" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-356" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="5.3.2 遅延調整処理" vertex="1">
-          <mxGeometry height="50" width="230" x="9020" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-357" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6. 音生成基盤" vertex="1">
-          <mxGeometry height="60" width="230" x="9970" y="140" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-358" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.1 Processing波形生成" vertex="1">
-          <mxGeometry height="60" width="230" x="9540" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-359" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.1.1 波形生成コード" vertex="1">
-          <mxGeometry height="50" width="230" x="9410" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-360" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.1.2 出力データ作成" vertex="1">
-          <mxGeometry height="50" width="230" x="9670" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-361" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.2 データ変換" vertex="1">
-          <mxGeometry height="60" width="230" x="9970" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-362" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.2.1 Arduino用配列変換処理" vertex="1">
-          <mxGeometry height="50" width="230" x="9970" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-363" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.3 再生制御プログラム" vertex="1">
-          <mxGeometry height="60" width="230" x="10400" y="260" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-364" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.3.1 再生ループ処理" vertex="1">
-          <mxGeometry height="50" width="230" x="10270" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-365" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="6.3.2 割り込み制御" vertex="1">
-          <mxGeometry height="50" width="230" x="10530" y="380" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-366" edge="1" parent="1" source="k885kA60mdbgfZntQND9-304" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-305">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-367" edge="1" parent="1" source="k885kA60mdbgfZntQND9-304" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-315">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-368" edge="1" parent="1" source="k885kA60mdbgfZntQND9-304" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-328">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-369" edge="1" parent="1" source="k885kA60mdbgfZntQND9-304" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-337">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-370" edge="1" parent="1" source="k885kA60mdbgfZntQND9-304" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-347">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-371" edge="1" parent="1" source="k885kA60mdbgfZntQND9-304" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-357">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-372" edge="1" parent="1" source="k885kA60mdbgfZntQND9-305" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-306">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-373" edge="1" parent="1" source="k885kA60mdbgfZntQND9-305" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-309">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-374" edge="1" parent="1" source="k885kA60mdbgfZntQND9-305" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-312">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-375" edge="1" parent="1" source="k885kA60mdbgfZntQND9-306" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-307">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-376" edge="1" parent="1" source="k885kA60mdbgfZntQND9-306" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-308">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-377" edge="1" parent="1" source="k885kA60mdbgfZntQND9-309" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-310">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-378" edge="1" parent="1" source="k885kA60mdbgfZntQND9-309" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-311">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-379" edge="1" parent="1" source="k885kA60mdbgfZntQND9-312" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-313">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-380" edge="1" parent="1" source="k885kA60mdbgfZntQND9-312" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-314">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-382" edge="1" parent="1" source="k885kA60mdbgfZntQND9-315" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-320">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-384" edge="1" parent="1" source="k885kA60mdbgfZntQND9-316" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-317">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-385" edge="1" parent="1" source="k885kA60mdbgfZntQND9-316" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-318">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-386" edge="1" parent="1" source="k885kA60mdbgfZntQND9-316" style="endArrow=none;html=1;rounded=0;edgeStyle=none;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="k885kA60mdbgfZntQND9-319">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="2390.2608695652175" y="380" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-387" edge="1" parent="1" source="k885kA60mdbgfZntQND9-320" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-321">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-388" edge="1" parent="1" source="k885kA60mdbgfZntQND9-320" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-322">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-389" edge="1" parent="1" source="k885kA60mdbgfZntQND9-320" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-323">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-390" edge="1" parent="1" source="k885kA60mdbgfZntQND9-324" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-325">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-391" edge="1" parent="1" source="k885kA60mdbgfZntQND9-324" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-326">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-393" edge="1" parent="1" source="k885kA60mdbgfZntQND9-328" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-329">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-394" edge="1" parent="1" source="k885kA60mdbgfZntQND9-328" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-332">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-395" edge="1" parent="1" source="k885kA60mdbgfZntQND9-328" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-334">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-396" edge="1" parent="1" source="k885kA60mdbgfZntQND9-329" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-330">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-397" edge="1" parent="1" source="k885kA60mdbgfZntQND9-329" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-331">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-398" edge="1" parent="1" source="k885kA60mdbgfZntQND9-332" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-333">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-399" edge="1" parent="1" source="k885kA60mdbgfZntQND9-334" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-335">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-400" edge="1" parent="1" source="k885kA60mdbgfZntQND9-334" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-336">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-401" edge="1" parent="1" source="k885kA60mdbgfZntQND9-337" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-338">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-402" edge="1" parent="1" source="k885kA60mdbgfZntQND9-337" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-341">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-403" edge="1" parent="1" source="k885kA60mdbgfZntQND9-337" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-344">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-404" edge="1" parent="1" source="k885kA60mdbgfZntQND9-338" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-339">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-405" edge="1" parent="1" source="k885kA60mdbgfZntQND9-338" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-340">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-406" edge="1" parent="1" source="k885kA60mdbgfZntQND9-341" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-342">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-407" edge="1" parent="1" source="k885kA60mdbgfZntQND9-341" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-343">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-408" edge="1" parent="1" source="k885kA60mdbgfZntQND9-344" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-345">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-409" edge="1" parent="1" source="k885kA60mdbgfZntQND9-344" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-346">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-410" edge="1" parent="1" source="k885kA60mdbgfZntQND9-347" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-348">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-411" edge="1" parent="1" source="k885kA60mdbgfZntQND9-347" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-351">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-412" edge="1" parent="1" source="k885kA60mdbgfZntQND9-347" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-354">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-413" edge="1" parent="1" source="k885kA60mdbgfZntQND9-348" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-349">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-414" edge="1" parent="1" source="k885kA60mdbgfZntQND9-348" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-350">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-415" edge="1" parent="1" source="k885kA60mdbgfZntQND9-351" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-352">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-416" edge="1" parent="1" source="k885kA60mdbgfZntQND9-351" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-353">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-417" edge="1" parent="1" source="k885kA60mdbgfZntQND9-354" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-355">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-418" edge="1" parent="1" source="k885kA60mdbgfZntQND9-354" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-356">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-419" edge="1" parent="1" source="k885kA60mdbgfZntQND9-357" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-358">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-420" edge="1" parent="1" source="k885kA60mdbgfZntQND9-357" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-361">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-421" edge="1" parent="1" source="k885kA60mdbgfZntQND9-357" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-363">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-422" edge="1" parent="1" source="k885kA60mdbgfZntQND9-358" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-359">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-423" edge="1" parent="1" source="k885kA60mdbgfZntQND9-358" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-360">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-424" edge="1" parent="1" source="k885kA60mdbgfZntQND9-361" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-362">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-425" edge="1" parent="1" source="k885kA60mdbgfZntQND9-363" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-364">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="k885kA60mdbgfZntQND9-426" edge="1" parent="1" source="k885kA60mdbgfZntQND9-363" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" target="k885kA60mdbgfZntQND9-365">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e">
+    <diagram name="PBS" id="lk5ryVPkbSlLCroWqSFk">
+        <mxGraphModel dx="1178" dy="809" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="k885kA60mdbgfZntQND9-181" value="0. カエルの輪唱演奏システム" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="5250" y="20" width="300" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-182" value="1. 演奏表示部" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="140" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-183" value="1.1 カエル人形" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-184" value="1.1.1 本体構造" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-185" value="1.1.2 外装デザイン" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-186" value="1.2 楽器保持構造" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-187" value="1.2.1 ドラム保持パーツ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-188" value="1.2.2 各楽器保持パーツ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="860" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-189" value="1.3 演奏動作表現" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1250" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-190" value="1.3.1 手の動き機構" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1120" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-191" value="1.3.2 動作制御信号" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1380" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-193" value="2.1 ドラム音再生" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2017" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-194" value="2.1.1 Arduino（ドラム用）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1640" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-195" value="2.1.2 ドラム波形データ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1900" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-196" value="2.1.3 再生スケッチ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2160" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-197" value="2.2 楽器音再生ユニット（各楽器）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2910" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-198" value="2.2.1 Arduino（各楽器）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2650" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-199" value="2.2.2 波形データ（Processing生成）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2910" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-200" value="2.2.3 再生スケッチ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="3160" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-201" value="2.3 音声出力" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="3830" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-205" value="3. 輪唱制御部" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4920" y="140" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-206" value="3.1 輪唱タイミング制御" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4490" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-207" value="3.1.1 開始遅延設定" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4360" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-208" value="3.1.2 再生開始制御" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4620" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-209" value="3.2 再生順序制御" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4920" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-210" value="3.2.1 楽器ごとの開始タイミング" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4920" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-211" value="3.3 テンポ追従制御" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="5350" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-212" value="3.3.1 BPM取得処理コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="5220" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-213" value="3.3.2 再生速度調整ロジック" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="5480" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-214" value="4. テンポ操作部" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6560" y="140" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-215" value="4.1 入力装置" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6000" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-216" value="4.1.1 可変抵抗" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="5870" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-217" value="4.1.2 アナログ入力回路" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6130" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-218" value="4.2 BPM算出" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6560" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-219" value="4.2.1 アナログ値取得コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6430" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-220" value="4.2.2 BPM変換処理コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6690" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-221" value="4.3 テンポ反映" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="7120" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-222" value="4.3.1 ドラム再生速度更新コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6990" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-223" value="4.3.2 BPM送信トリガ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="7250" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-224" value="5. 通信部" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8330" y="140" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-225" value="5.1 ドラム側" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="7770" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-226" value="5.1.1 BPM送信処理コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="7640" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-227" value="5.1.2 通信フォーマット定義" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="7900" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-228" value="5.2 受信側" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8330" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-229" value="5.2.1 BPM受信処理コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8200" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-230" value="5.2.2 データパース処理コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8460" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-231" value="5.3 同期制御" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8890" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-232" value="5.3.1 タイミング補正ロジック" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8760" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-233" value="5.3.2 遅延調整パラメータ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9020" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-234" value="6. 音生成基盤" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9970" y="140" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-235" value="6.1 Processing" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9540" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-236" value="6.1.1 波形生成コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9410" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-237" value="6.1.2 出力データ生成コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9670" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-238" value="6.2 データ変換" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9970" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-239" value="6.2.1 Arduino用配列変換コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9970" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-240" value="6.3 再生制御" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="10400" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-241" value="6.3.1 再生ループ処理コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="10270" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-242" value="6.3.2 割り込み制御コード（必要なら）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="10530" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-243" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-181" target="k885kA60mdbgfZntQND9-182" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-244" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-181" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="3120" y="163.99791231732775" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-245" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-181" target="k885kA60mdbgfZntQND9-205" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-246" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-181" target="k885kA60mdbgfZntQND9-214" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-247" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-181" target="k885kA60mdbgfZntQND9-224" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-248" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-181" target="k885kA60mdbgfZntQND9-234" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-249" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-182" target="k885kA60mdbgfZntQND9-183" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-250" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-182" target="k885kA60mdbgfZntQND9-186" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-251" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-182" target="k885kA60mdbgfZntQND9-189" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-252" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-183" target="k885kA60mdbgfZntQND9-184" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-253" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-183" target="k885kA60mdbgfZntQND9-185" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-254" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-186" target="k885kA60mdbgfZntQND9-187" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-255" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-186" target="k885kA60mdbgfZntQND9-188" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-256" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-189" target="k885kA60mdbgfZntQND9-190" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-257" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-189" target="k885kA60mdbgfZntQND9-191" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-258" style="endArrow=none;html=1;rounded=0;edgeStyle=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="k885kA60mdbgfZntQND9-315" target="k885kA60mdbgfZntQND9-193" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="2890" y="185.80756013745713" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-260" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" target="k885kA60mdbgfZntQND9-201" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="3120" y="186.82926829268285" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-261" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-193" target="k885kA60mdbgfZntQND9-194" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-262" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-193" target="k885kA60mdbgfZntQND9-195" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-263" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-193" target="k885kA60mdbgfZntQND9-196" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-264" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-197" target="k885kA60mdbgfZntQND9-198" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-265" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-197" target="k885kA60mdbgfZntQND9-199" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-266" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-197" target="k885kA60mdbgfZntQND9-200" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-270" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-205" target="k885kA60mdbgfZntQND9-206" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-271" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-205" target="k885kA60mdbgfZntQND9-209" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-272" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-205" target="k885kA60mdbgfZntQND9-211" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-273" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-206" target="k885kA60mdbgfZntQND9-207" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-274" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-206" target="k885kA60mdbgfZntQND9-208" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-275" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-209" target="k885kA60mdbgfZntQND9-210" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-276" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-211" target="k885kA60mdbgfZntQND9-212" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-277" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-211" target="k885kA60mdbgfZntQND9-213" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-278" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-214" target="k885kA60mdbgfZntQND9-215" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-279" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-214" target="k885kA60mdbgfZntQND9-218" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-280" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-214" target="k885kA60mdbgfZntQND9-221" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-281" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-215" target="k885kA60mdbgfZntQND9-216" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-282" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-215" target="k885kA60mdbgfZntQND9-217" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-283" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-218" target="k885kA60mdbgfZntQND9-219" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-284" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-218" target="k885kA60mdbgfZntQND9-220" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-285" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-221" target="k885kA60mdbgfZntQND9-222" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-286" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-221" target="k885kA60mdbgfZntQND9-223" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-287" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-224" target="k885kA60mdbgfZntQND9-225" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-288" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-224" target="k885kA60mdbgfZntQND9-228" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-289" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-224" target="k885kA60mdbgfZntQND9-231" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-290" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-225" target="k885kA60mdbgfZntQND9-226" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-291" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-225" target="k885kA60mdbgfZntQND9-227" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-292" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-228" target="k885kA60mdbgfZntQND9-229" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-293" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-228" target="k885kA60mdbgfZntQND9-230" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-294" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-231" target="k885kA60mdbgfZntQND9-232" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-295" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-231" target="k885kA60mdbgfZntQND9-233" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-296" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-234" target="k885kA60mdbgfZntQND9-235" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-297" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-234" target="k885kA60mdbgfZntQND9-238" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-298" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-234" target="k885kA60mdbgfZntQND9-240" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-299" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-235" target="k885kA60mdbgfZntQND9-236" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-300" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-235" target="k885kA60mdbgfZntQND9-237" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-301" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-238" target="k885kA60mdbgfZntQND9-239" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-302" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-240" target="k885kA60mdbgfZntQND9-241" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-303" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-240" target="k885kA60mdbgfZntQND9-242" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-304" value="0. カエルの輪唱演奏システム" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="5250" y="20" width="300" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-305" value="1. 演奏表示部" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="140" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-306" value="1.1 カエル人形" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-307" value="1.1.1 本体構造" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-308" value="1.1.2 外装デザイン" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-309" value="1.2 楽器保持構造" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-310" value="1.2.1 ドラム保持パーツ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-311" value="1.2.2 各楽器保持パーツ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="860" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-312" value="1.3 動作表現機構" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1250" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-313" value="1.3.1 カエルの動作機構" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1120" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-314" value="1.3.2 動作制御信号" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1380" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-315" value="2. 楽器音再生部" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2910" y="140" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-316" value="2.1 ドラム音再生" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2017" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-317" value="2.1.1 Arduino（ドラム用）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1640" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-318" value="2.1.2 ドラム用波形データ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1900" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-319" value="2.1.4ドラム演奏" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2400" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-320" value="2.2 楽器音再生" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2910" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-321" value="2.2.1 Arduino（各楽器）&lt;div&gt;[加藤]&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2650" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-322" value="2.2.2 波形データ（Processing生成）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2910" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-323" value="2.2.4 各楽器演奏データ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="3410" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-324" value="2.3 音声出力回路" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="3830" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-325" value="2.3.1 PWM出力設定" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="3660" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-326" value="2.3.2 スピーカー接続" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4010" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-328" value="3. 輪唱制御部" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4920" y="140" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-329" value="3.1 再生タイミング制御プログラム" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4490" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-330" value="3.1.1 開始遅延設定" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4360" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-331" value="3.1.2 再生開始処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4620" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-332" value="3.2 再生順序制御ロジック" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4920" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-333" value="3.2.1 楽器ごとの開始タイミング設定" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="4920" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-334" value="3.3 再生速度制御プログラム" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="5350" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-335" value="3.3.1 BPM受信値の反映" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="5220" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-336" value="3.3.2 再生間隔調整処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="5480" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-337" value="4. テンポ操作部" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6560" y="140" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-338" value="4.1 入力装置" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6000" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-339" value="4.1.1 可変抵抗" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="5870" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-340" value="4.1.2 アナログ入力回路" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6130" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-341" value="4.2 BPM計算プログラム" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6560" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-342" value="4.2.1 アナログ値取得処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6430" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-343" value="4.2.2 BPM変換処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6690" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-344" value="4.3 テンポ反映処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="7120" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-345" value="4.3.1 ドラム再生速度更新" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="6990" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-346" value="4.3.2 BPM送信処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="7250" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-347" value="5. 通信部" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8330" y="140" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-348" value="5.1 ドラム側通信プログラム" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="7770" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-349" value="5.1.1 BPM送信処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="7640" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-350" value="5.1.2 通信フォーマット定義" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="7900" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-351" value="5.2 受信側通信プログラム" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8330" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-352" value="5.2.1 BPM受信処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8200" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-353" value="5.2.2 データ解析処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8460" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-354" value="5.3 同期補正処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8890" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-355" value="5.3.1 タイミング補正ロジック" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="8760" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-356" value="5.3.2 遅延調整処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9020" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-357" value="6. 音生成基盤" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9970" y="140" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-358" value="6.1 Processing波形生成" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9540" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-359" value="6.1.1 波形生成コード" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9410" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-360" value="6.1.2 出力データ作成" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9670" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-361" value="6.2 データ変換" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9970" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-362" value="6.2.1 Arduino用配列変換処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="9970" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-363" value="6.3 再生制御プログラム" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="10400" y="260" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-364" value="6.3.1 再生ループ処理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="10270" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-365" value="6.3.2 割り込み制御" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="10530" y="380" width="230" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-366" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-304" target="k885kA60mdbgfZntQND9-305" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-367" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-304" target="k885kA60mdbgfZntQND9-315" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-368" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-304" target="k885kA60mdbgfZntQND9-328" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-369" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-304" target="k885kA60mdbgfZntQND9-337" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-370" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-304" target="k885kA60mdbgfZntQND9-347" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-371" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-304" target="k885kA60mdbgfZntQND9-357" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-372" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-305" target="k885kA60mdbgfZntQND9-306" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-373" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-305" target="k885kA60mdbgfZntQND9-309" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-374" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-305" target="k885kA60mdbgfZntQND9-312" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-375" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-306" target="k885kA60mdbgfZntQND9-307" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-376" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-306" target="k885kA60mdbgfZntQND9-308" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-377" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-309" target="k885kA60mdbgfZntQND9-310" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-378" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-309" target="k885kA60mdbgfZntQND9-311" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-379" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-312" target="k885kA60mdbgfZntQND9-313" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-380" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-312" target="k885kA60mdbgfZntQND9-314" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-382" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-315" target="k885kA60mdbgfZntQND9-320" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-384" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-316" target="k885kA60mdbgfZntQND9-317" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-385" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-316" target="k885kA60mdbgfZntQND9-318" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-386" style="endArrow=none;html=1;rounded=0;edgeStyle=none;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="k885kA60mdbgfZntQND9-316" target="k885kA60mdbgfZntQND9-319" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="2390.2608695652175" y="380" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-387" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-320" target="k885kA60mdbgfZntQND9-321" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-388" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-320" target="k885kA60mdbgfZntQND9-322" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-389" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-320" target="k885kA60mdbgfZntQND9-323" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-390" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-324" target="k885kA60mdbgfZntQND9-325" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-391" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-324" target="k885kA60mdbgfZntQND9-326" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-393" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-328" target="k885kA60mdbgfZntQND9-329" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-394" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-328" target="k885kA60mdbgfZntQND9-332" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-395" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-328" target="k885kA60mdbgfZntQND9-334" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-396" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-329" target="k885kA60mdbgfZntQND9-330" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-397" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-329" target="k885kA60mdbgfZntQND9-331" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-398" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-332" target="k885kA60mdbgfZntQND9-333" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-399" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-334" target="k885kA60mdbgfZntQND9-335" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-400" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-334" target="k885kA60mdbgfZntQND9-336" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-401" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-337" target="k885kA60mdbgfZntQND9-338" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-402" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-337" target="k885kA60mdbgfZntQND9-341" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-403" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-337" target="k885kA60mdbgfZntQND9-344" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-404" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-338" target="k885kA60mdbgfZntQND9-339" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-405" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-338" target="k885kA60mdbgfZntQND9-340" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-406" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-341" target="k885kA60mdbgfZntQND9-342" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-407" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-341" target="k885kA60mdbgfZntQND9-343" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-408" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-344" target="k885kA60mdbgfZntQND9-345" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-409" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-344" target="k885kA60mdbgfZntQND9-346" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-410" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-347" target="k885kA60mdbgfZntQND9-348" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-411" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-347" target="k885kA60mdbgfZntQND9-351" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-412" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-347" target="k885kA60mdbgfZntQND9-354" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-413" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-348" target="k885kA60mdbgfZntQND9-349" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-414" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-348" target="k885kA60mdbgfZntQND9-350" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-415" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-351" target="k885kA60mdbgfZntQND9-352" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-416" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-351" target="k885kA60mdbgfZntQND9-353" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-417" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-354" target="k885kA60mdbgfZntQND9-355" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-418" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-354" target="k885kA60mdbgfZntQND9-356" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-419" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-357" target="k885kA60mdbgfZntQND9-358" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-420" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-357" target="k885kA60mdbgfZntQND9-361" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-421" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-357" target="k885kA60mdbgfZntQND9-363" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-422" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-358" target="k885kA60mdbgfZntQND9-359" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-423" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-358" target="k885kA60mdbgfZntQND9-360" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-424" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-361" target="k885kA60mdbgfZntQND9-362" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-425" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-363" target="k885kA60mdbgfZntQND9-364" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="k885kA60mdbgfZntQND9-426" style="endArrow=none;html=1;rounded=0;edgeStyle=none;" parent="1" source="k885kA60mdbgfZntQND9-363" target="k885kA60mdbgfZntQND9-365" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>
