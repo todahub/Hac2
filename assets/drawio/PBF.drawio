@@ -406,7 +406,7 @@
                 <mxCell id="k885kA60mdbgfZntQND9-320" value="2.2 楽器音再生" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="2910" y="260" width="230" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="k885kA60mdbgfZntQND9-321" value="2.2.1 Arduino（各楽器）&lt;div&gt;[加藤]&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                <mxCell id="k885kA60mdbgfZntQND9-321" value="2.2.1 Arduino（各楽器）&lt;div&gt;[cacao]&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="2650" y="380" width="230" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="k885kA60mdbgfZntQND9-322" value="2.2.2 波形データ（Processing生成）" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
