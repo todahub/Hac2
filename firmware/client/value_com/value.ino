@@ -16,6 +16,6 @@ void loop() {
     active = false;
     digitalWrite(13, LOW);
   }
-  
+
   delay(1);
 }
