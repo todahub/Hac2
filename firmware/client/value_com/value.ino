@@ -1,21 +1,84 @@
-const int ID = 1; 
+const int ID = 1;
 bool active = false;
+
+// 信号解析用の変数
+const int TARGET_COUNT = 10; 
+int zeroCrossCount = 0;
+unsigned long startTime = 0;
+int signalMin = 1023;
+int signalMax = 0;
+
+
+const int SIGNAL_CENTER = 512; 
+bool lastAboveCenter = false;
 
 void setup() {
   Serial.begin(115200);
+  pinMode(13, OUTPUT);
 }
 
 void loop() {
-  bool inRange = abs(analogRead(A0) - (ID * 205)) < 102;
-  if (inRange && !active) {
-    active = true;
-    digitalWrite(13, HIGH);
-    Serial.println("PLAY_NOTE_CLIENT_" + String(ID)); 
-  } 
-  else if (!inRange && active) {
-    active = false;
-    digitalWrite(13, LOW);
-  }
+  int sensorValue = analogRead(A0);
 
-  delay(1);
+
+  bool inRange = abs(sensorValue - (ID * 205)) < 102;
+
+  if (inRange) {
+    if (!active) {
+      active = true;
+      digitalWrite(13, HIGH);
+      // 計測の初期化
+      zeroCrossCount = 0;
+      startTime = micros(); 
+      signalMin = 1023;
+      signalMax = 0;
+    }
+
+
+    if (sensorValue < signalMin) signalMin = sensorValue;
+    if (sensorValue > signalMax) signalMax = sensorValue;
+
+
+    bool currentAboveCenter = (sensorValue > SIGNAL_CENTER);
+    if (lastAboveCenter && !currentAboveCenter) { 
+      zeroCrossCount++;
+
+      if (zeroCrossCount >= TARGET_COUNT) {
+        unsigned long durationMicros = micros() - startTime;
+
+        float noteLength = (durationMicros / 10.0) / 1000.0; 
+
+ 
+        float frequency = 1000000.0 / (durationMicros / 10.0);
+
+        float noteVelocity = (signalMax - signalMin) / 1023.0;
+
+ 
+        Serial.print(ID);
+        Serial.print(",");
+        Serial.print(frequency);
+        Serial.print(",");
+        Serial.print(noteLength);
+        Serial.print(",");
+        Serial.println(noteVelocity);
+
+        zeroCrossCount = 0;
+        startTime = micros();
+        signalMin = 1023;
+        signalMax = 0;
+      }
+    }
+    lastAboveCenter = currentAboveCenter;
+
+  } else {
+
+    if (active) {
+      active = false;
+      digitalWrite(13, LOW);
+      
+
+      Serial.print(ID);
+      Serial.print(",0,0,0.0\n");
+    }
+  }
 }
