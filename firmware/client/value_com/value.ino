@@ -60,7 +60,7 @@ void loop() {
   currentBeatLengthMs = (60.0 / bpm) * 1000.0;
 
   int sensorValue = analogRead(A0);
-  bool inRange = abs(sensorValue - (ID * 205)) < 102;
+  bool inRange = sensorValue >= (ID * 205 - 102);
 
   // アナログ入力しきい値検知のノイズ対策（150msのデバウンス・ロックアウト）
   static bool lastInRange = false;
@@ -123,7 +123,7 @@ void loop() {
     } else {
       active = false;
       digitalWrite(13, LOW);
-      Serial.println("END,0,0");
+      Serial.println("END 0 0");
     }
   }
 
@@ -135,11 +135,11 @@ void loop() {
 
 void sendNoteData(int index) {
   Serial.print(noteNames[index]);
-  Serial.print(",");
+  Serial.print(" ");
   
   float durationMs = beats[index] * currentBeatLengthMs;
   Serial.print(durationMs, 0);
   
-  Serial.print(",");
+  Serial.print(" ");
   Serial.println(velocities[index], 0);
 }
