@@ -1,6 +1,5 @@
 import ddf.minim.*;
 import ddf.minim.ugens.*;
-import ddf.minim.ugens.Frequency;
 import processing.serial.*;
 
 Minim minim;
@@ -30,9 +29,13 @@ class SynthString {
     sum.patch(filter).patch(adsr).patch(out);
   }
 
-  void noteOn(float freq) {
+  void noteOn(float freq, float vel) {
     wave1.setFrequency(freq);
     wave2.setFrequency(freq * 1.003f);
+
+    wave1.setAmplitude(0.4f * vel);
+    wave2.setAmplitude(0.2f * vel);
+
     adsr.noteOn();
   }
 
@@ -76,19 +79,30 @@ void serialEvent(Serial p) {
 
   println("RECEIVED: " + inString);
 
-  String[] parts = split(inString, ',');
+  String[] parts = split(inString, ' ');
   if (parts.length != 3) return;
 
-  float freq = float(parts[0]);
-  float beat = float(parts[1]);
-  float vel  = float(parts[2]);
+  String pitchName = parts[0];
+  float durationMs = float(parts[1]);
+  float velocity   = float(parts[2]);
 
-  if (freq == 0 && beat == 0 && vel == 0) {
+  if (pitchName.equals("REST")) {
     stopNoteSmooth();
     return;
   }
 
-  playNote(freq);
+  float freq = Frequency.ofPitch(pitchName).asHz();
+
+  playNote(freq, velocity);
+
+  final float stopAfter = durationMs;
+  new Thread(new Runnable() {
+    public void run() {
+      try { Thread.sleep((long)stopAfter); }
+      catch (Exception e) {}
+      stopNoteSmooth();
+    }
+  }).start();
 }
 
 void stopNoteSmooth() {
@@ -98,13 +112,13 @@ void stopNoteSmooth() {
   contrabass.noteOff();
 }
 
-void playNote(float freq) {
+void playNote(float freq, float vel) {
   stopNoteSmooth();
 
-  if (currentInstrument == 1) violin.noteOn(freq);
-  else if (currentInstrument == 2) viola.noteOn(freq * 0.75f);
-  else if (currentInstrument == 3) cello.noteOn(freq * 0.5f);
-  else if (currentInstrument == 4) contrabass.noteOn(freq * 0.25f);
+  if (currentInstrument == 1) violin.noteOn(freq, vel);
+  else if (currentInstrument == 2) viola.noteOn(freq, vel);
+  else if (currentInstrument == 3) cello.noteOn(freq, vel);
+  else if (currentInstrument == 4) contrabass.noteOn(freq, vel);
 }
 
 void keyPressed() {
@@ -112,4 +126,6 @@ void keyPressed() {
   if (key == '2') currentInstrument = 2;
   if (key == '3') currentInstrument = 3;
   if (key == '4') currentInstrument = 4;
+
+  println("Instrument changed to: " + currentInstrument);
 }
