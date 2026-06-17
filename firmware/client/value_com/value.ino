@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 const int ID = 1;
 bool active = false;
 
@@ -28,11 +30,14 @@ int currentNoteIndex = 0;
 unsigned long noteStartTime = 0;
 float elapsedBeats = 0.0;
 
+unsigned long triggerPulseStartMs = 0;
+bool triggerPulseActive = false;
+
 void setup() {
   Serial.begin(115200);
   pinMode(13, OUTPUT);
   pinMode(9, OUTPUT);
-  analogWrite(9, 0);
+  digitalWrite(9, LOW);
 }
 
 void loop() {
@@ -64,18 +69,25 @@ void loop() {
       currentNoteIndex++;
 
       if (currentNoteIndex == 8) {
-        analogWrite(9, (ID + 1) * 51);
+        int nextTargetAnalog = (ID + 1) * 205;
+        analogWrite(9, nextTargetAnalog / 4);
+        triggerPulseStartMs = millis();
+        triggerPulseActive = true;
       }
 
       if (currentNoteIndex < NOTE_COUNT) {
         sendNoteData(currentNoteIndex);
       } else {
         active = false;
-        analogWrite(9, 0);
         digitalWrite(13, LOW);
         Serial.println("0,0,0");
       }
     }
+  }
+
+  if (triggerPulseActive && millis() - triggerPulseStartMs >= 100) {
+    digitalWrite(9, LOW);
+    triggerPulseActive = false;
   }
 }
 
