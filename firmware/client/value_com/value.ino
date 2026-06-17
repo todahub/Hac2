@@ -68,7 +68,7 @@ void loop() {
       elapsedBeats = 0.0;
       currentNoteIndex++;
 
-      if (currentNoteIndex == 8) {
+      if (currentNoteIndex == 8 && ID < 4) {
         int nextTargetAnalog = (ID + 1) * 205;
         analogWrite(9, nextTargetAnalog / 4);
         triggerPulseStartMs = millis();
