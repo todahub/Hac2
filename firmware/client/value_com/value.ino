@@ -30,8 +30,9 @@ float velocities[NOTE_COUNT] = {
 
 int currentNoteIndex = 0;
 int lastSentIndex = -1;
-unsigned long noteStartTime = 0;
-float elapsedBeats = 0.0;
+float noteStartBeats[NOTE_COUNT];
+int ticksReceived = 0;
+unsigned long tickStartTime = 0;
 
 unsigned long triggerPulseStartMs = 0;
 bool triggerPulseActive = false;
@@ -45,6 +46,12 @@ void setup() {
   pinMode(13, OUTPUT);
   pinMode(9, OUTPUT);
   digitalWrite(9, LOW);
+
+  // 楽譜の各音符の開始拍位置を計算
+  noteStartBeats[0] = 0.0;
+  for (int i = 1; i < NOTE_COUNT; i++) {
+    noteStartBeats[i] = noteStartBeats[i - 1] + beats[i - 1];
+  }
 }
 
 void loop() {
@@ -55,26 +62,51 @@ void loop() {
   int sensorValue = analogRead(A0);
   bool inRange = abs(sensorValue - (ID * 205)) < 102;
 
-  if (inRange && !active) {
-    active = true;
-    digitalWrite(13, HIGH);
-    currentNoteIndex = 0;
-    lastSentIndex = -1;
-    elapsedBeats = 0.0;
-    noteStartTime = millis();
+  // アナログ入力しきい値検知のノイズ対策（150msのデバウンス・ロックアウト）
+  static bool lastInRange = false;
+  static unsigned long lastTickDetectedMs = 0;
+  bool tickDetected = false;
+
+  if (inRange && !lastInRange) {
+    if (millis() - lastTickDetectedMs > 150) {
+      tickDetected = true;
+      lastTickDetectedMs = millis();
+    }
+  }
+  lastInRange = inRange;
+
+  // ビート検出時の処理
+  if (tickDetected) {
+    if (!active) {
+      active = true;
+      digitalWrite(13, HIGH);
+      currentNoteIndex = 0;
+      lastSentIndex = -1;
+      ticksReceived = 1;
+      tickStartTime = millis();
+    } else {
+      ticksReceived++;
+      tickStartTime = millis();
+    }
   }
 
   if (active) {
     unsigned long now = millis();
-    unsigned long duration = now - noteStartTime;
-    noteStartTime = now;
+    unsigned long elapsedMs = now - tickStartTime;
+    
+    // 現在のビート内の進捗割合（次のビートパルス受信前に先走らないよう 0.99 に制限）
+    float progress = (float)elapsedMs / currentBeatLengthMs;
+    if (progress >= 0.99f) {
+      progress = 0.99f;
+    }
 
-    elapsedBeats += (float)duration / currentBeatLengthMs;
+    float currentTotalBeats = static_cast<float>(ticksReceived - 1) + progress;
 
-    if (elapsedBeats >= beats[currentNoteIndex]) {
-      elapsedBeats = 0.0;
+    // 現在の拍位置が音符の終了位置を超えていれば、インデックスを進める
+    while (currentNoteIndex < NOTE_COUNT && currentTotalBeats >= (noteStartBeats[currentNoteIndex] + beats[currentNoteIndex])) {
       currentNoteIndex++;
 
+      // 次のクライアントへのトリガー送信（音符インデックス8に達した時）
       if (currentNoteIndex == 8 && ID < 4) {
         int nextTargetAnalog = (ID + 1) * 205;
         analogWrite(9, nextTargetAnalog / 4);
