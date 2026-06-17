@@ -1,82 +1,85 @@
 const int ID = 1;
 bool active = false;
 
-const int TARGET_COUNT = 10; 
-int zeroCrossCount = 0;
-unsigned long startTime = 0;
-int signalMin = 1023;
-int signalMax = 0;
+const int NOTE_COUNT = 33;
+float frequencies[NOTE_COUNT] = {};
+float beats[NOTE_COUNT]       = {};
+float velocities[NOTE_COUNT]  = {};
 
 
-const int SIGNAL_CENTER = 512; 
-bool lastAboveCenter = false;
-
+int currentNoteIndex = 0;      
+unsigned long noteStartTime = 0; 
+unsigned long currentNoteDuration = 0; 
 void setup() {
   Serial.begin(115200);
   pinMode(13, OUTPUT);
+  pinMode(9, OUTPUT);
+  analogWrite(9, 0);
 }
 
 void loop() {
+
+  int bpmValue = analogRead(A1);
+  float bpm = map(bpmValue, 0, 1023, 60, 240); 
+  float beatMs = (60.0 / bpm) * 1000.0; 
+
   int sensorValue = analogRead(A0);
-
-
   bool inRange = abs(sensorValue - (ID * 205)) < 102;
 
-  if (inRange) {
-    if (!active) {
-      active = true;
-      digitalWrite(13, HIGH);
-      zeroCrossCount = 0;
-      startTime = micros(); 
-      signalMin = 1023;
-      signalMax = 0;
-    }
+
+  if (inRange && !active) {
+    active = true;
+    digitalWrite(13, HIGH);
+    currentNoteIndex = 0;
+    noteStartTime = millis();
+
+    currentNoteDuration = beats[currentNoteIndex] * beatMs;
+    sendNoteData(currentNoteIndex);
+  }
 
 
-    if (sensorValue < signalMin) signalMin = sensorValue;
-    if (sensorValue > signalMax) signalMax = sensorValue;
+  if (active) {
+   
+    currentNoteDuration = beats[currentNoteIndex] * beatMs;
 
+   
+    if (millis() - noteStartTime >= currentNoteDuration) {
+      currentNoteIndex++;
 
-    bool currentAboveCenter = (sensorValue > SIGNAL_CENTER);
-    if (lastAboveCenter && !currentAboveCenter) { 
-      zeroCrossCount++;
+     
+      if (currentNoteIndex == 8) {
+        analogWrite(9, (ID + 1) * 51);
+      }
 
-      if (zeroCrossCount >= TARGET_COUNT) {
-        unsigned long durationMicros = micros() - startTime;
+     
+      if (currentNoteIndex < NOTE_COUNT) {
+        noteStartTime = millis(); 
+        sendNoteData(currentNoteIndex); 
+      } else {
+    
+        active = false;
+        analogWrite(9, 0);
+        digitalWrite(13, LOW);
 
-        float Length = (durationMicros / 10.0) / 1000.0; 
-
- 
-        float frequency = 1000000.0 / (durationMicros / 10.0);
-
-        float Velocity = (signalMax - signalMin) / 1023.0;
-
- 
         Serial.print(ID);
-        Serial.print(",");
-        Serial.print(frequency);
-        Serial.print(",");
-        Serial.print(Length);
-        Serial.print(",");
-        Serial.println(Velocity);
-
-        zeroCrossCount = 0;
-        startTime = micros();
-        signalMin = 1023;
-        signalMax = 0;
+        Serial.print(",0,0,0.0\n");
       }
     }
-    lastAboveCenter = currentAboveCenter;
-
-  } else {
-
-    if (active) {
-      active = false;
-      digitalWrite(13, LOW);
-      
-
-      Serial.print(ID);
-      Serial.print(",0,0,0.0\n");
-    }
   }
+
+ 
+  if (!inRange && active) {
+
+  }
+}
+
+
+void sendNoteData(int index) {
+  Serial.print(ID);
+  Serial.print(",");
+  Serial.print(frequencies[index]);
+  Serial.print(",");
+  Serial.print(beats[index]);
+  Serial.print(",");
+  Serial.println(velocities[index]);
 }
