@@ -1,7 +1,6 @@
 const int ID = 1;
 bool active = false;
 
-// 信号解析用の変数
 const int TARGET_COUNT = 10; 
 int zeroCrossCount = 0;
 unsigned long startTime = 0;
@@ -27,7 +26,6 @@ void loop() {
     if (!active) {
       active = true;
       digitalWrite(13, HIGH);
-      // 計測の初期化
       zeroCrossCount = 0;
       startTime = micros(); 
       signalMin = 1023;
@@ -46,21 +44,21 @@ void loop() {
       if (zeroCrossCount >= TARGET_COUNT) {
         unsigned long durationMicros = micros() - startTime;
 
-        float noteLength = (durationMicros / 10.0) / 1000.0; 
+        float Length = (durationMicros / 10.0) / 1000.0; 
 
  
         float frequency = 1000000.0 / (durationMicros / 10.0);
 
-        float noteVelocity = (signalMax - signalMin) / 1023.0;
+        float Velocity = (signalMax - signalMin) / 1023.0;
 
  
         Serial.print(ID);
         Serial.print(",");
         Serial.print(frequency);
         Serial.print(",");
-        Serial.print(noteLength);
+        Serial.print(Length);
         Serial.print(",");
-        Serial.println(noteVelocity);
+        Serial.println(Velocity);
 
         zeroCrossCount = 0;
         startTime = micros();
