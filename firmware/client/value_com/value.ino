@@ -92,7 +92,7 @@ void setup() {
   }
 
   int sensorValue = analogRead(A0);
-  lastInRange = abs(sensorValue - (ID * 205)) < VOLTAGE_THRES_COUNT;
+  lastInRange = sensorValue >= (ID * 205 - 102);
 }
 
 void loop() {
