@@ -1,11 +1,15 @@
 #include <Arduino.h>
 #include "Arduino_LED_Matrix.h"
 
-#define CLIENT_ID 1
+#define CLIENT_ID 
 #define ROUND_DELAY_BEATS ((CLIENT_ID - 1) * 4)
-#define PIN_SYNC_IN 1
-#define PIN_LED 13
-#define SERIAL_BAUD 115200
+
+// ⚠️ ピンバッティングを防ぐため、アナログ入力を明確に分離
+#define PIN_SYNC_IN A0  // 前の筐体からの信号入力（アナログA0ピン）
+#define PIN_BPM_IN   A1  // BPM調節用ボリューム（アナログA1ピン）
+#define PIN_SYNC_OUT 9   // 次の筐体への信号出力（PWM 9番ピン）
+#define PIN_LED      13
+#define SERIAL_BAUD  115200
 
 ArduinoLEDMatrix matrix;
 
@@ -103,14 +107,12 @@ unsigned long ledLastToggleMs = 0;
 unsigned long ledBlinkIntervalMs = 40UL; 
 unsigned long ledSingleOffAt = 0;        
 
-  
 const int VOLTAGE_THRES_COUNT = 41;
 
 int getClientFrameIndex() {
   if (CLIENT_ID < 1 || CLIENT_ID > CLIENT_FRAME_COUNT) {
     return 0;
   }
-
   return CLIENT_ID - 1;
 }
 
@@ -145,8 +147,8 @@ void sendNoteData(int index);
 void setup() {
   Serial.begin(SERIAL_BAUD);
   pinMode(STATUS_PIN, OUTPUT);
-  pinMode(9, OUTPUT);
-  digitalWrite(9, LOW);
+  pinMode(PIN_SYNC_OUT, OUTPUT);
+  digitalWrite(PIN_SYNC_OUT, LOW);
 
   noteStartBeats[0] = 0.0;
   for (int i = 1; i < NOTE_COUNT; i++) {
@@ -157,18 +159,20 @@ void setup() {
   matrix.renderBitmap(clientFrames[getClientFrameIndex()], 8, 12);
 
   int sensorValue = analogRead(PIN_SYNC_IN);
-    lastInRange = sensorValue >= (ID * 205 - 102);
+  lastInRange = sensorValue >= (ID * 205 - 102);
 }
 
 void loop() {
   const unsigned long now = millis();
-  int bpmValue = analogRead(A1);
+  
+  // BPM入力ピンのバッティングを解消
+  int bpmValue = analogRead(PIN_BPM_IN);
   float bpm = 60.0 + ((float)bpmValue * (180.0 / 1023.0));
   currentBeatLengthMs = (60.0 / bpm) * 1000.0;
 
   int sensorValue = analogRead(PIN_SYNC_IN);
   
-  // 自筐体IDの検出判定も±0.2V幅に狭める
+  // 自筐体IDの検出判定
   bool inRange = abs(sensorValue - (ID * 205)) < VOLTAGE_THRES_COUNT;
 
   static unsigned long lastTickDetectedMs = 0;
@@ -211,9 +215,10 @@ void loop() {
     while (currentNoteIndex < NOTE_COUNT && currentTotalBeats >= (noteStartBeats[currentNoteIndex] + beats[currentNoteIndex])) {
       currentNoteIndex++;
 
+      // 8番目のノートのタイミングで、ID 1〜3 の筐体は「次の筐体」へトリガーを送る
       if (currentNoteIndex == 8 && ID < 4) {
         int nextTargetAnalog = (ID + 1) * 205;
-        analogWrite(9, nextTargetAnalog / 4);
+        analogWrite(PIN_SYNC_OUT, nextTargetAnalog / 4);
         triggerPulseStartMs = now;
         triggerPulseActive = true;
       }
@@ -233,7 +238,7 @@ void loop() {
   }
 
   if (triggerPulseActive && now - triggerPulseStartMs >= 100) {
-    digitalWrite(9, LOW);
+    digitalWrite(PIN_SYNC_OUT, LOW);
     triggerPulseActive = false;
   }
 
