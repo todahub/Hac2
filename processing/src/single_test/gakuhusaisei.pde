@@ -23,6 +23,43 @@ float instrOffset2 = -3.0f;   // instrument 2 = -3 半音
 float instrOffset3 = -6.0f;   // instrument 3 = -6 半音（ただし音色は明るめ）
 float instrOffset4 = -12.0f;  // instrument 4 = -12 半音（コントラバス、最も低い）
 
+// Arduino の楽譜で使用される全ての音階マッピング（ノート名 → 周波数 Hz）
+java.util.HashMap<String, Float> noteFreqMap = new java.util.HashMap<String, Float>();
+
+void initNoteMappings() {
+  // C4 = 261.63 Hz から始まる
+  noteFreqMap.put("C4", 261.63f);
+  noteFreqMap.put("D4", 293.66f);
+  noteFreqMap.put("E4", 329.63f);
+  noteFreqMap.put("F4", 349.23f);
+  noteFreqMap.put("G4", 392.00f);
+  noteFreqMap.put("A4", 440.00f);
+  noteFreqMap.put("B4", 493.88f);
+  noteFreqMap.put("C5", 523.25f);
+  noteFreqMap.put("D5", 587.33f);
+  noteFreqMap.put("E5", 659.25f);
+  noteFreqMap.put("F5", 698.46f);
+  noteFreqMap.put("G5", 783.99f);
+  noteFreqMap.put("A5", 880.00f);
+  // 必要に応じてさらに追加
+}
+
+// ピッチ名から周波数を取得（マッピングテーブルと Frequency.ofPitch の両方を試す）
+float getPitchFrequency(String pitchName) {
+  // 1. ローカルマップを確認
+  if (noteFreqMap.containsKey(pitchName)) {
+    return noteFreqMap.get(pitchName);
+  }
+  
+  // 2. Frequency.ofPitch を試す（フォールバック）
+  try {
+    return Frequency.ofPitch(pitchName).asHz();
+  } catch (Exception e) {
+    println("    [WARN] Frequency.ofPitch failed for: " + pitchName);
+    return -1.0f;
+  }
+}
+
 // ---------------- SynthString クラス（部分音合成 + ノイズ丸め + 胴鳴り） ----------------
 class SynthString {
   Oscil[] partials;
@@ -159,6 +196,9 @@ void setup() {
   minim = new Minim(this);
   out = minim.getLineOut();
 
+  // ノート・周波数マッピングを初期化
+  initNoteMappings();
+
   // 共通の部分音比（必要に応じて楽器ごとに差をつける）
   float[] baseRatios = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f};
 
@@ -212,10 +252,27 @@ void setup() {
   );
 
   println("Ready. 1-4 to change instrument. A/S/D/F/G to play notes.");
-  println("Serial ports:");
-  println(Serial.list());
-  // myPort = new Serial(this, Serial.list()[INDEX], 115200); // 必要なら有効化（INDEX を環境に合わせる)
-  // myPort.bufferUntil('\n');
+  println("\n=== Available Serial Ports ===");
+  String[] ports = Serial.list();
+  for (int i = 0; i < ports.length; i++) {
+    println("[" + i + "] " + ports[i]);
+  }
+  println("================================\n");
+
+  // Arduino クライアントからのシリアル受信を開始
+  // ポート番号を環境に合わせて変更してください（例: Serial.list()[3]）
+  if (ports.length > 0) {
+    // インデックス 0 のポートを試す（必要に応じて変更）
+    try {
+      myPort = new Serial(this, ports[0], 115200);
+      myPort.bufferUntil('\n');
+      println("✓ Serial port initialized: " + ports[0]);
+    } catch (Exception e) {
+      println("✗ Failed to initialize serial port. Please check connection.");
+    }
+  } else {
+    println("✗ No serial ports found. Connect Arduino and restart Processing.");
+  }
 }
 
 void draw() {
@@ -230,23 +287,51 @@ void draw() {
 // ---------------- シリアル受信 ----------------
 void serialEvent(Serial p) {
   String inString = trim(p.readStringUntil('\n'));
-  if (inString == null) return;
+  if (inString == null || inString.length() == 0) return;
 
-  println("RECEIVED: " + inString);
+  println(">>> RECEIVED: " + inString);
 
   String[] parts = split(inString, ' ');
-  if (parts.length != 3) return;
+  if (parts.length != 3) {
+    println("    [ERROR] Expected 3 parts (PITCH DURATION VELOCITY), got " + parts.length);
+    return;
+  }
 
   String pitchName = parts[0];
-  float durationMs = float(parts[1]);
-  float velocity   = float(parts[2]);
+  float durationMs;
+  float velocity;
+
+  try {
+    durationMs = float(parts[1]);
+    velocity = float(parts[2]);
+  } catch (Exception e) {
+    println("    [ERROR] Failed to parse duration or velocity: " + e.getMessage());
+    return;
+  }
+
+  // ベロシティを 0.0-1.0 の範囲に正規化（念のため）
+  velocity = constrain(velocity, 0.0f, 1.0f);
+
+  println("    Pitch: " + pitchName + " | Duration: " + durationMs + "ms | Velocity: " + velocity);
 
   if (pitchName.equals("REST")) {
+    println("    -> Resting note");
     stopNoteSmooth();
     return;
   }
 
-  float freq = Frequency.ofPitch(pitchName).asHz();
+  float freq;
+  try {
+    freq = getPitchFrequency(pitchName);
+    if (freq < 0) {
+      println("    [ERROR] Pitch name not found: " + pitchName);
+      return;
+    }
+    println("    -> Freq: " + freq + " Hz | Instrument: " + currentInstrument);
+  } catch (Exception e) {
+    println("    [ERROR] Exception while parsing pitch: " + pitchName + " - " + e.getMessage());
+    return;
+  }
 
   playNote(freq, velocity);
 
