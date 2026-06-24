@@ -1,8 +1,7 @@
 #include <Arduino.h>
 #include "Arduino_LED_Matrix.h"
 
-
-#define CLIENT_ID 1 
+#define CLIENT_ID 1
 #define ROUND_DELAY_BEATS ((CLIENT_ID - 1) * 4)
 
 // ピン配置
@@ -59,6 +58,71 @@ uint8_t clientFrames[CLIENT_FRAME_COUNT][8][12] = {
   }
 };
 
+const uint8_t VOLTAGE_FRAME_COUNT = 6;
+
+uint8_t voltageFrames[VOLTAGE_FRAME_COUNT][8][12] = {
+  {
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  },
+  {
+    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  },
+  {
+    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  },
+  {
+    {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0}
+  },
+  {
+    {1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0}
+  },
+  {
+    {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0}
+  }
+};
+
 const int ID = CLIENT_ID;
 bool active = false;
 
@@ -106,8 +170,8 @@ bool ledPatternActive = false;
 bool ledState = false;
 int ledBlinksRemaining = 0;
 unsigned long ledLastToggleMs = 0;
-unsigned long ledBlinkIntervalMs = 40UL; 
-unsigned long ledSingleOffAt = 0;        
+unsigned long ledBlinkIntervalMs = 40UL;
+unsigned long ledSingleOffAt = 0;
 
 const int VOLTAGE_THRES_COUNT = 41;
 
@@ -124,6 +188,29 @@ int getReceivedId(int sensorVal) {
   if (abs(sensorVal - (3 * 205)) < VOLTAGE_THRES_COUNT) return 3;
   if (abs(sensorVal - (4 * 205)) < VOLTAGE_THRES_COUNT) return 4;
   return 0;
+}
+
+int getVoltageMeterIndex(int sensorVal) {
+  if (sensorVal < (1 * 205) - VOLTAGE_THRES_COUNT) return 0;
+  if (sensorVal < (2 * 205) - VOLTAGE_THRES_COUNT) return 1;
+  if (sensorVal < (3 * 205) - VOLTAGE_THRES_COUNT) return 2;
+  if (sensorVal < (4 * 205) - VOLTAGE_THRES_COUNT) return 3;
+  if (sensorVal < (5 * 205) - VOLTAGE_THRES_COUNT) return 4;
+  return 5;
+}
+
+void renderVoltageMeter(int sensorVal) {
+  uint8_t mergedFrame[8][12];
+  const int clientFrameIndex = getClientFrameIndex();
+  const int voltageFrameIndex = getVoltageMeterIndex(sensorVal);
+
+  for (int row = 0; row < 8; row++) {
+    for (int col = 0; col < 12; col++) {
+      mergedFrame[row][col] = clientFrames[clientFrameIndex][row][col] + voltageFrames[voltageFrameIndex][row][col];
+    }
+  }
+
+  matrix.renderBitmap(mergedFrame, 8, 12);
 }
 
 void startLedPattern(int id, unsigned long now) {
@@ -166,13 +253,15 @@ void setup() {
 
 void loop() {
   const unsigned long now = millis();
-  
+
+  int sensorValue = analogRead(PIN_SYNC_IN);
+  renderVoltageMeter(sensorValue);
+
+  // BPM入力ピンのバッティングを解消
   int bpmValue = analogRead(PIN_BPM_IN);
   float bpm = 60.0 + ((float)bpmValue * (180.0 / 1023.0));
   currentBeatLengthMs = (60.0 / bpm) * 1000.0;
 
-  int sensorValue = analogRead(PIN_SYNC_IN);
-  
   bool inRange = abs(sensorValue - (ID * 205)) < VOLTAGE_THRES_COUNT;
 
   static unsigned long lastTickDetectedMs = 0;
@@ -234,7 +323,6 @@ void loop() {
       active = false;
       digitalWrite(STATUS_PIN, LOW);
       ledPatternActive = false;
-      Serial.println("END 0 0");
     }
   }
 
@@ -272,10 +360,10 @@ void loop() {
 void sendNoteData(int index) {
   Serial.print(noteNames[index]);
   Serial.print(" ");
-  
+
   float durationMs = beats[index] * currentBeatLengthMs;
   Serial.print(durationMs, 0);
-  
+
   Serial.print(" ");
   Serial.println(velocities[index], 0);
 }
