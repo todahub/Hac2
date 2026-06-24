@@ -99,7 +99,7 @@ unsigned long ledLastToggleMs = 0;
 unsigned long ledBlinkIntervalMs = 40UL; 
 unsigned long ledSingleOffAt = 0;        
 
-// アナログ値（0-1023）での±0.2V幅に相当するカウント値（0.2V / 5.0V * 1023 ≒ 41）
+  
 const int VOLTAGE_THRES_COUNT = 41;
 
 int getClientFrameIndex() {
@@ -111,7 +111,6 @@ int getClientFrameIndex() {
 }
 
 int getReceivedId(int sensorVal) {
-  // 各IDのターゲット値（ID*205）から±0.2V（41カウント）の範囲でIDを識別
   if (abs(sensorVal - (1 * 205)) < VOLTAGE_THRES_COUNT) return 1;
   if (abs(sensorVal - (2 * 205)) < VOLTAGE_THRES_COUNT) return 2;
   if (abs(sensorVal - (3 * 205)) < VOLTAGE_THRES_COUNT) return 3;
