@@ -1,7 +1,11 @@
 #include <Arduino.h>
 #include "Arduino_LED_Matrix.h"
 
-#include "../config.h"
+#define CLIENT_ID 1
+#define ROUND_DELAY_BEATS ((CLIENT_ID - 1) * 4)
+#define PIN_SYNC_IN 1
+#define PIN_LED 13
+#define SERIAL_BAUD 115200
 
 ArduinoLEDMatrix matrix;
 
@@ -91,7 +95,7 @@ bool triggerPulseActive = false;
 
 float currentBeatLengthMs = 0.0;
 
-const uint8_t STATUS_PIN = 13;
+const uint8_t STATUS_PIN = PIN_LED;
 bool ledPatternActive = false;
 bool ledState = false;
 int ledBlinksRemaining = 0;
@@ -139,7 +143,7 @@ void startLedPattern(int id, unsigned long now) {
 void sendNoteData(int index);
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(SERIAL_BAUD);
   pinMode(STATUS_PIN, OUTPUT);
   pinMode(9, OUTPUT);
   digitalWrite(9, LOW);
@@ -152,7 +156,7 @@ void setup() {
   matrix.begin();
   matrix.renderBitmap(clientFrames[getClientFrameIndex()], 8, 12);
 
-  int sensorValue = analogRead(A0);
+  int sensorValue = analogRead(PIN_SYNC_IN);
     lastInRange = sensorValue >= (ID * 205 - 102);
 }
 
@@ -162,7 +166,7 @@ void loop() {
   float bpm = 60.0 + ((float)bpmValue * (180.0 / 1023.0));
   currentBeatLengthMs = (60.0 / bpm) * 1000.0;
 
-  int sensorValue = analogRead(A0);
+  int sensorValue = analogRead(PIN_SYNC_IN);
   
   // 自筐体IDの検出判定も±0.2V幅に狭める
   bool inRange = abs(sensorValue - (ID * 205)) < VOLTAGE_THRES_COUNT;
