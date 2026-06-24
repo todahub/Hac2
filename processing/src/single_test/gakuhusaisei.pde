@@ -3,12 +3,10 @@ import ddf.minim.ugens.*;
 import processing.serial.*;
 
 // Processing + Minim スケッチ
-// - 部分音合成 + ノイズ丸め + 胴鳴りで弦楽器風サウンド
-// - 楽器ごとに「数字が大きくなるほど低く」なるようにセミトーンオフセットを設定
-// - instrument 3 はコントラバスより明るめに調整（高次倍音を強め、カットオフを高めに）
-// - 振幅は Gain、フィルタ更新は parameter.setLastValue を使用（setAmplitude / setCutoff を使わない）
-// キー操作: 1-4 楽器切替, A/S/D/F/G で音を鳴らす
-// シリアル受信: "PITCH DURATION_MS VELOCITY" 形式に対応
+// - Arduino からの "PITCH DURATION_MS VELOCITY" を受け取り再生
+// - 受信は readStringUntil('\n') を優先（改行付き送信が前提）
+// - 音色は部分音合成 + ノイズ丸め + 胴鳴り（最新の設定を維持）
+// - 自動で /dev/cu.usbmodem* を探して接続（見つからなければ最初のポートを試す）
 
 Minim minim;
 AudioOutput out;
@@ -18,49 +16,47 @@ int currentInstrument = 1; // 1 が基準（チェロ寄り）
 SynthString activeSynth = null;
 
 // 楽器ごとのセミトーンオフセット（数字が上がるほど低く）
-float instrOffset1 = 0.0f;    // instrument 1 = 基準（チェロ寄り）
-float instrOffset2 = -3.0f;   // instrument 2 = -3 半音
-float instrOffset3 = -6.0f;   // instrument 3 = -6 半音（ただし音色は明るめ）
-float instrOffset4 = -12.0f;  // instrument 4 = -12 半音（コントラバス、最も低い）
+float instrOffset1 = 0.0f;
+float instrOffset2 = -3.0f;
+float instrOffset3 = -6.0f;
+float instrOffset4 = -12.0f;
 
-// Arduino の楽譜で使用される全ての音階マッピング（ノート名 → 周波数 Hz）
+// ノート名 → 周波数マップ
 java.util.HashMap<String, Float> noteFreqMap = new java.util.HashMap<String, Float>();
 
 void initNoteMappings() {
-  // C4 = 261.63 Hz から始まる
-  noteFreqMap.put("C4", 261.63f);
-  noteFreqMap.put("D4", 293.66f);
-  noteFreqMap.put("E4", 329.63f);
-  noteFreqMap.put("F4", 349.23f);
-  noteFreqMap.put("G4", 392.00f);
-  noteFreqMap.put("A4", 440.00f);
+  noteFreqMap.put("C2", 65.406f);  noteFreqMap.put("D2", 73.416f);  noteFreqMap.put("E2", 82.407f);
+  noteFreqMap.put("F2", 87.307f);  noteFreqMap.put("G2", 98.000f);  noteFreqMap.put("A2", 110.00f);
+  noteFreqMap.put("B2", 123.47f);
+
+  noteFreqMap.put("C3", 130.81f);  noteFreqMap.put("D3", 146.83f);  noteFreqMap.put("E3", 164.81f);
+  noteFreqMap.put("F3", 174.61f);  noteFreqMap.put("G3", 196.00f);  noteFreqMap.put("A3", 220.00f);
+  noteFreqMap.put("B3", 246.94f);
+
+  noteFreqMap.put("C4", 261.63f);  noteFreqMap.put("D4", 293.66f);  noteFreqMap.put("E4", 329.63f);
+  noteFreqMap.put("F4", 349.23f);  noteFreqMap.put("G4", 392.00f);  noteFreqMap.put("A4", 440.00f);
   noteFreqMap.put("B4", 493.88f);
-  noteFreqMap.put("C5", 523.25f);
-  noteFreqMap.put("D5", 587.33f);
-  noteFreqMap.put("E5", 659.25f);
-  noteFreqMap.put("F5", 698.46f);
-  noteFreqMap.put("G5", 783.99f);
-  noteFreqMap.put("A5", 880.00f);
-  // 必要に応じてさらに追加
+
+  noteFreqMap.put("C5", 523.25f);  noteFreqMap.put("D5", 587.33f);  noteFreqMap.put("E5", 659.25f);
+  noteFreqMap.put("F5", 698.46f);  noteFreqMap.put("G5", 783.99f);  noteFreqMap.put("A5", 880.00f);
+  noteFreqMap.put("B5", 987.77f);
+
+  noteFreqMap.put("C", 261.63f); // フォールバック
 }
 
-// ピッチ名から周波数を取得（マッピングテーブルと Frequency.ofPitch の両方を試す）
 float getPitchFrequency(String pitchName) {
-  // 1. ローカルマップを確認
-  if (noteFreqMap.containsKey(pitchName)) {
-    return noteFreqMap.get(pitchName);
-  }
-  
-  // 2. Frequency.ofPitch を試す（フォールバック）
+  if (pitchName == null) return -1.0f;
+  pitchName = pitchName.trim().toUpperCase();
+  if (noteFreqMap.containsKey(pitchName)) return noteFreqMap.get(pitchName);
   try {
     return Frequency.ofPitch(pitchName).asHz();
   } catch (Exception e) {
-    println("    [WARN] Frequency.ofPitch failed for: " + pitchName);
+    println("[WARN] Frequency.ofPitch failed for: " + pitchName);
     return -1.0f;
   }
 }
 
-// ---------------- SynthString クラス（部分音合成 + ノイズ丸め + 胴鳴り） ----------------
+// ---------------- SynthString クラス ----------------
 class SynthString {
   Oscil[] partials;
   Gain[] partialGains;
@@ -105,13 +101,11 @@ class SynthString {
       partialGains[i] = new Gain(0.0f);
     }
 
-    // ノイズ経路（高域を落として滑らかに）
     bowNoise = new Noise(1.0f);
     noiseFilter = new MoogFilter(constrain(baseCutoff * 0.30f, 120, 4000), 0.6f);
     noiseEnv = new ADSR(0.006f, 0.01f, 0.8f, 0.04f);
     noiseGain = new Gain(0.0f);
 
-    // 胴鳴り（低域共鳴）
     bodyResonator = new MoogFilter(constrain(baseCutoff * 0.22f, 40, 600), 0.95f);
     bodyGain = new Gain(0.0f);
 
@@ -127,7 +121,6 @@ class SynthString {
 
     bowNoise.patch(noiseFilter).patch(noiseEnv).patch(noiseGain).patch(sum);
 
-    // 部分音を bodyResonator にも送って低域の厚みを作る
     Summer bodyInput = new Summer();
     for (int i = 0; i < partialCount; i++) {
       partials[i].patch(bodyInput);
@@ -143,10 +136,9 @@ class SynthString {
     return freq * pow(2.0f, semitoneOffset / 12.0f);
   }
 
-  // noteOn: semitoneOffset を受け取る（楽器ごとの高さ調整）
   void noteOn(float freq, float vel, float semitoneOffset) {
+    if (freq <= 0) return;
     float baseFreq = applySemitoneOffset(freq, semitoneOffset);
-
     float micro = random(-0.0006f, 0.0006f);
 
     for (int i = 0; i < partialCount; i++) {
@@ -156,31 +148,25 @@ class SynthString {
       partialGains[i].setValue(amp);
     }
 
-    // ノイズは控えめにしてざらつきを抑える
     float noiseLevel = baseNoiseAmp * (0.05f + 0.30f * vel);
     noiseGain.setValue(noiseLevel);
     noiseEnv.noteOn();
 
-    // 胴鳴り（低域）をベロシティで調整
     float bodyLevel = 0.30f * (0.35f + 0.65f * vel);
     bodyGain.setValue(bodyLevel);
 
-    // メインフィルタの開き（過度に高くしない）
     float newCut = constrain(baseCutoff + vel * 650.0f, 120.0f, 9000.0f);
     try { bodyFilter.frequency.setLastValue(newCut); } catch (Exception e) {}
     float newRes = lerp(baseResonance, baseResonance + 0.12f, vel);
     try { bodyFilter.resonance.setLastValue(newRes); } catch (Exception e) {}
 
-    // ノイズフィルタも少し開くが高域は抑える
     try { noiseFilter.frequency.setLastValue(constrain(baseCutoff * 0.30f + vel * 220.0f, 120.0f, 4000.0f)); } catch (Exception e) {}
 
     ampEnv.noteOn();
   }
 
   void noteOff() {
-    for (int i = 0; i < partialCount; i++) {
-      partialGains[i].setValue(0.0f);
-    }
+    for (int i = 0; i < partialCount; i++) partialGains[i].setValue(0.0f);
     noiseEnv.noteOff();
     noiseGain.setValue(0.0f);
     bodyGain.setValue(0.0f);
@@ -196,82 +182,49 @@ void setup() {
   minim = new Minim(this);
   out = minim.getLineOut();
 
-  // ノート・周波数マッピングを初期化
   initNoteMappings();
 
-  // 共通の部分音比（必要に応じて楽器ごとに差をつける）
   float[] baseRatios = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f};
 
-  // instrument 1: 基準（チェロ寄り、深み重視）
   float[] celloAmps = {0.90f, 0.35f, 0.18f, 0.10f, 0.06f, 0.03f};
-  instr1 = new SynthString(
-    0.03f, 0.14f, 0.85f, 0.48f,
-    1500.0f,
-    baseRatios, celloAmps,
-    0.0035f,
-    0.010f, // baseNoiseAmp 小さめ
-    0.60f,
-    0.8f
-  );
+  instr1 = new SynthString(0.03f, 0.14f, 0.85f, 0.48f, 1500.0f, baseRatios, celloAmps, 0.0035f, 0.010f, 0.60f, 0.8f);
 
-  // instrument 2: 少し低め（-3半音）、やや中域寄り
   float[] violaAmps = {0.86f, 0.36f, 0.20f, 0.11f, 0.06f, 0.03f};
-  instr2 = new SynthString(
-    0.025f, 0.12f, 0.82f, 0.34f,
-    2200.0f,
-    baseRatios, violaAmps,
-    0.005f,
-    0.009f,
-    0.62f,
-    0.8f
-  );
+  instr2 = new SynthString(0.025f, 0.12f, 0.82f, 0.34f, 2200.0f, baseRatios, violaAmps, 0.005f, 0.009f, 0.62f, 0.8f);
 
-  // instrument 3: さらに低め（-6半音）だが「コントラバスより明るい」音色にする
-  // → 高次倍音を相対的に強め、カットオフを高めに設定して明るさを出す
-  float[] instr3Amps = {0.80f, 0.48f, 0.34f, 0.20f, 0.10f, 0.05f}; // 高次を強めに
-  instr3 = new SynthString(
-    0.02f, 0.08f, 0.78f, 0.22f,
-    2600.0f, // cutoff を高めにして明るさを出す
-    baseRatios, instr3Amps,
-    0.0065f,
-    0.0075f, // ノイズは控えめに
-    0.58f,   // resonance はやや控えめ
-    0.85f    // master gain 少し上げて存在感を出す
-  );
+  float[] instr3Amps = {0.80f, 0.48f, 0.34f, 0.20f, 0.10f, 0.05f};
+  instr3 = new SynthString(0.02f, 0.08f, 0.78f, 0.22f, 2600.0f, baseRatios, instr3Amps, 0.0065f, 0.0075f, 0.58f, 0.85f);
 
-  // instrument 4: 一番低く（-12半音）、コントラバス寄り（深く太い）
   float[] cbAmps = {1.00f, 0.28f, 0.12f, 0.06f, 0.03f, 0.015f};
-  instr4 = new SynthString(
-    0.06f, 0.20f, 0.90f, 0.70f,
-    900.0f,
-    baseRatios, cbAmps,
-    0.0025f,
-    0.016f,
-    0.55f,
-    0.8f
-  );
+  instr4 = new SynthString(0.06f, 0.20f, 0.90f, 0.70f, 900.0f, baseRatios, cbAmps, 0.0025f, 0.016f, 0.55f, 0.8f);
 
   println("Ready. 1-4 to change instrument. A/S/D/F/G to play notes.");
   println("\n=== Available Serial Ports ===");
   String[] ports = Serial.list();
-  for (int i = 0; i < ports.length; i++) {
-    println("[" + i + "] " + ports[i]);
-  }
+  for (int i = 0; i < ports.length; i++) println("[" + i + "] " + ports[i]);
   println("================================\n");
 
-  // Arduino クライアントからのシリアル受信を開始
-  // ポート番号を環境に合わせて変更してください（例: Serial.list()[3]）
-  if (ports.length > 0) {
-    // インデックス 0 のポートを試す（必要に応じて変更）
+  // 自動で usbmodem を探す（見つからなければ ports[0] を使う）
+  String chosen = null;
+  for (String p : ports) {
+    if (p.toLowerCase().contains("usbmodem") || p.toLowerCase().contains("usbserial") || p.toLowerCase().contains("tty.usbmodem")) {
+      chosen = p;
+      break;
+    }
+  }
+  if (chosen == null && ports.length > 0) chosen = ports[0];
+
+  if (chosen != null) {
     try {
-      myPort = new Serial(this, ports[0], 115200);
+      myPort = new Serial(this, chosen, 115200);
       myPort.bufferUntil('\n');
-      println("✓ Serial port initialized: " + ports[0]);
+      println("✓ Serial port initialized: " + chosen);
     } catch (Exception e) {
-      println("✗ Failed to initialize serial port. Please check connection.");
+      println("✗ Failed to initialize serial port: " + chosen + " -> " + e.getMessage());
+      myPort = null;
     }
   } else {
-    println("✗ No serial ports found. Connect Arduino and restart Processing.");
+    println("✗ No serial ports available.");
   }
 }
 
@@ -279,28 +232,37 @@ void draw() {
   background(18);
   stroke(0, 255, 150);
   for (int i = 0; i < out.bufferSize() - 1; i++) {
-    line(i, height/2 + out.mix.get(i)*200,
-         i+1, height/2 + out.mix.get(i+1)*200);
+    line(i, height/2 + out.mix.get(i)*200, i+1, height/2 + out.mix.get(i+1)*200);
   }
 }
 
 // ---------------- シリアル受信 ----------------
 void serialEvent(Serial p) {
-  String inString = trim(p.readStringUntil('\n'));
-  if (inString == null || inString.length() == 0) return;
+  // まず改行までの行を取得（readStringUntil を優先）
+  String inString = null;
+  try {
+    inString = p.readStringUntil('\n');
+  } catch (Exception e) {
+    println("[serialEvent] readStringUntil error: " + e.getMessage());
+    inString = null;
+  }
+  if (inString == null) return;
 
-  println(">>> RECEIVED: " + inString);
+  inString = inString.replace("\r", "").replace("\n", "").trim();
+  if (inString.length() == 0) return;
 
-  String[] parts = split(inString, ' ');
+  println(">>> RECEIVED LINE: [" + inString + "]");
+
+  // トークン分割（堅牢に）
+  String[] parts = splitTokens(inString, " \t\r\n");
   if (parts.length != 3) {
-    println("    [ERROR] Expected 3 parts (PITCH DURATION VELOCITY), got " + parts.length);
+    println("    [ERROR] Expected 3 tokens (PITCH DURATION_MS VELOCITY), got " + parts.length);
     return;
   }
 
-  String pitchName = parts[0];
+  String pitchName = parts[0].trim();
   float durationMs;
   float velocity;
-
   try {
     durationMs = float(parts[1]);
     velocity = float(parts[2]);
@@ -309,37 +271,22 @@ void serialEvent(Serial p) {
     return;
   }
 
-  // ベロシティを 0.0-1.0 の範囲に正規化（念のため）
   velocity = constrain(velocity, 0.0f, 1.0f);
 
-  println("    Pitch: " + pitchName + " | Duration: " + durationMs + "ms | Velocity: " + velocity);
-
-  if (pitchName.equals("REST")) {
-    println("    -> Resting note");
-    stopNoteSmooth();
+  float freq = getPitchFrequency(pitchName);
+  if (freq <= 0) {
+    println("    [ERROR] Unknown pitch: " + pitchName);
     return;
   }
 
-  float freq;
-  try {
-    freq = getPitchFrequency(pitchName);
-    if (freq < 0) {
-      println("    [ERROR] Pitch name not found: " + pitchName);
-      return;
-    }
-    println("    -> Freq: " + freq + " Hz | Instrument: " + currentInstrument);
-  } catch (Exception e) {
-    println("    [ERROR] Exception while parsing pitch: " + pitchName + " - " + e.getMessage());
-    return;
-  }
+  println("    -> Freq: " + freq + " Hz | Dur: " + durationMs + " ms | Vel: " + velocity + " | Instr: " + currentInstrument);
 
   playNote(freq, velocity);
 
   final float stopAfter = durationMs;
   new Thread(new Runnable() {
     public void run() {
-      try { Thread.sleep((long)stopAfter); }
-      catch (Exception e) {}
+      try { Thread.sleep((long)stopAfter); } catch (Exception e) {}
       stopNoteSmooth();
     }
   }).start();
@@ -354,42 +301,38 @@ void stopNoteSmooth() {
 
 void playNote(float freq, float vel) {
   stopNoteSmooth();
-
   if (currentInstrument == 1) instr1.noteOn(freq, vel, instrOffset1);
   else if (currentInstrument == 2) instr2.noteOn(freq, vel, instrOffset2);
   else if (currentInstrument == 3) instr3.noteOn(freq, vel, instrOffset3);
   else if (currentInstrument == 4) instr4.noteOn(freq, vel, instrOffset4);
 }
 
-// ---------------- キーボードでのテスト ----------------
+// ---------------- キーボードテスト ----------------
 void keyPressed() {
   if (key == '1') currentInstrument = 1;
   if (key == '2') currentInstrument = 2;
   if (key == '3') currentInstrument = 3;
   if (key == '4') currentInstrument = 4;
 
-  if (key == 'a' || key == 's' || key == 'd' || key == 'f' || key == 'g') {
+  if ("asdfg".indexOf(Character.toLowerCase(key)) >= 0) {
     float baseFreq = 440.0f;
-    if (key == 'a') baseFreq = 440.00f;    // A4
-    if (key == 's') baseFreq = 493.88f;    // B4
-    if (key == 'd') baseFreq = 523.25f;    // C5
-    if (key == 'f') baseFreq = 587.33f;    // D5
-    if (key == 'g') baseFreq = 659.25f;    // E5
+    if (key == 'a') baseFreq = 440.00f;
+    if (key == 's') baseFreq = 493.88f;
+    if (key == 'd') baseFreq = 523.25f;
+    if (key == 'f') baseFreq = 587.33f;
+    if (key == 'g') baseFreq = 659.25f;
 
     if (currentInstrument == 1) activeSynth = instr1;
     else if (currentInstrument == 2) activeSynth = instr2;
     else if (currentInstrument == 3) activeSynth = instr3;
     else activeSynth = instr4;
 
-    if (activeSynth == instr1) activeSynth.noteOn(baseFreq, 0.9f, instrOffset1);
-    else if (activeSynth == instr2) activeSynth.noteOn(baseFreq, 0.9f, instrOffset2);
-    else if (activeSynth == instr3) activeSynth.noteOn(baseFreq, 0.9f, instrOffset3);
-    else if (activeSynth == instr4) activeSynth.noteOn(baseFreq, 0.9f, instrOffset4);
+    if (activeSynth != null) activeSynth.noteOn(baseFreq, 0.9f, (currentInstrument==1?instrOffset1:currentInstrument==2?instrOffset2:currentInstrument==3?instrOffset3:instrOffset4));
   }
 }
 
 void keyReleased() {
-  if (key == 'a' || key == 's' || key == 'd' || key == 'f' || key == 'g') {
+  if ("asdfg".indexOf(Character.toLowerCase(key)) >= 0) {
     if (activeSynth != null) {
       activeSynth.noteOff();
       activeSynth = null;
