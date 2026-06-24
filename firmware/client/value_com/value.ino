@@ -1,6 +1,56 @@
 #include <Arduino.h>
+#include "Arduino_LED_Matrix.h"
 
-const int ID = 1;
+#include "../config.h"
+
+ArduinoLEDMatrix matrix;
+
+const uint8_t CLIENT_FRAME_COUNT = 4;
+
+uint8_t clientFrames[CLIENT_FRAME_COUNT][8][12] = {
+  {
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  },
+  {
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  },
+  {
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  },
+  {
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  }
+};
+
+const int ID = CLIENT_ID;
 bool active = false;
 
 const int NOTE_COUNT = 37;
@@ -20,6 +70,7 @@ float beats[NOTE_COUNT] = {
   0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
   0.5, 0.5, 0.5, 0.5, 1.0
 };
+
 float velocities[NOTE_COUNT] = {
   1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0,
   1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0,
@@ -50,6 +101,14 @@ unsigned long ledSingleOffAt = 0;
 
 // アナログ値（0-1023）での±0.2V幅に相当するカウント値（0.2V / 5.0V * 1023 ≒ 41）
 const int VOLTAGE_THRES_COUNT = 41;
+
+int getClientFrameIndex() {
+  if (CLIENT_ID < 1 || CLIENT_ID > CLIENT_FRAME_COUNT) {
+    return 0;
+  }
+
+  return CLIENT_ID - 1;
+}
 
 int getReceivedId(int sensorVal) {
   // 各IDのターゲット値（ID*205）から±0.2V（41カウント）の範囲でIDを識別
@@ -91,8 +150,11 @@ void setup() {
     noteStartBeats[i] = noteStartBeats[i - 1] + beats[i - 1];
   }
 
+  matrix.begin();
+  matrix.renderBitmap(clientFrames[getClientFrameIndex()], 8, 12);
+
   int sensorValue = analogRead(A0);
-  lastInRange = sensorValue >= (ID * 205 - 102);
+    lastInRange = sensorValue >= (ID * 205 - 102);
 }
 
 void loop() {
