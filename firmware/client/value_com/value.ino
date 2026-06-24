@@ -206,7 +206,7 @@ void renderVoltageMeter(int sensorVal) {
 
   for (int row = 0; row < 8; row++) {
     for (int col = 0; col < 12; col++) {
-      mergedFrame[row][col] = clientFrames[clientFrameIndex][row][col] + voltageFrames[voltageFrameIndex][row][col];
+      mergedFrame[row][col] = clientFrames[clientFrameIndex][row][col] | voltageFrames[voltageFrameIndex][row][col];
     }
   }
 
@@ -248,7 +248,7 @@ void setup() {
   matrix.renderBitmap(clientFrames[getClientFrameIndex()], 8, 12);
 
   int sensorValue = analogRead(PIN_SYNC_IN);
-  lastInRange = sensorValue >= (ID * 205 - 102);
+  lastInRange = sensorValue >= (ID * 205 - VOLTAGE_THRES_COUNT);
 }
 
 void loop() {
@@ -262,7 +262,8 @@ void loop() {
   float bpm = 60.0 + ((float)bpmValue * (180.0 / 1023.0));
   currentBeatLengthMs = (60.0 / bpm) * 1000.0;
 
-  bool inRange = abs(sensorValue - (ID * 205)) < VOLTAGE_THRES_COUNT;
+  // 入力信号IDがID以上の時に反応（クライアント機IDがnなら、信号n,n+1,n+2,...で再生を進める）
+  bool inRange = sensorValue >= (ID * 205 - VOLTAGE_THRES_COUNT);
 
   static unsigned long lastTickDetectedMs = 0;
   bool tickDetected = false;
