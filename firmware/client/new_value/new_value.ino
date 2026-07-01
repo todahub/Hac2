@@ -3,10 +3,10 @@
 
 #define CLIENT_ID 1
 
-// ピン配置
-#define PIN_SYNC_IN A0  // 前の筐体からの信号入力（アナログA0ピン）
-#define PIN_BPM_IN   A1  // BPM調節用ボリューム（アナログA1ピン）
-#define PIN_LED      13
+#define PIN_SYNC_IN A0  
+#define PIN_BPM_IN   A1  
+#define PIN_LED      13  
+#define PIN_EYE_LED  2  
 #define SERIAL_BAUD  115200
 
 ArduinoLEDMatrix matrix;
@@ -85,9 +85,9 @@ uint8_t voltageFrames[VOLTAGE_FRAME_COUNT][8][12] = {
     {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+    {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0}
   },
   {
     {1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
@@ -152,7 +152,6 @@ float velocities[NOTE_COUNT] = {
 
 float noteStartBeats[NOTE_COUNT];
 
-// 再生管理用変数
 int currentBeat = -1;
 int currentNoteIndex = 0;
 unsigned long tickStartTime = 0;
@@ -231,6 +230,7 @@ void sendNoteData(int index);
 void setup() {
   Serial.begin(SERIAL_BAUD);
   pinMode(STATUS_PIN, OUTPUT);
+  pinMode(PIN_EYE_LED, OUTPUT); 
 
   noteStartBeats[0] = 0.0;
   for (int i = 1; i < NOTE_COUNT; i++) {
@@ -250,16 +250,14 @@ void loop() {
   int sensorValue = analogRead(PIN_SYNC_IN);
   renderVoltageMeter(sensorValue);
 
-  // BPM入力ピンから音符の基準長さを計算（パルス間の時間の目安としてのみ使用）
   int bpmValue = analogRead(PIN_BPM_IN);
   float bpm = 60.0 + ((float)bpmValue * (180.0 / 1023.0));
   currentBeatLengthMs = (60.0 / bpm) * 1000.0;
 
   bool inRange = sensorValue >= (ID * 205 - VOLTAGE_THRES_COUNT);
-  static unsigned long lastTickDetectedMs = 0;
+  static unsigned long lastTickDetectedMs = 0; 
   bool tickDetected = false;
 
-  // パルス立ち上がりの検出
   if (inRange && !lastInRange) {
     if (now > 1000 && (now - lastTickDetectedMs > 150)) {
       tickDetected = true;
@@ -278,8 +276,6 @@ void loop() {
       currentNoteIndex = 0;
       tickStartTime = now;
     } else {
-      // パルスが来たため1拍進める。
-      // もし前の拍に未出力の裏拍（0.5拍など）が残っていれば、スキップを防ぐため強制的に出力する
       while (currentNoteIndex < NOTE_COUNT && noteStartBeats[currentNoteIndex] < (float)(currentBeat + 1)) {
         sendNoteData(currentNoteIndex);
         currentNoteIndex++;
@@ -289,17 +285,11 @@ void loop() {
     }
   }
 
-  // アクティブ中の音符出力ロジック
   if (active && currentNoteIndex < NOTE_COUNT) {
-    // 次の音符が「現在の拍（currentBeat）」の中に含まれているかチェック
     if (noteStartBeats[currentNoteIndex] < (float)(currentBeat + 1)) {
-      // その拍の頭からの遅延（拍数）を計算（0.0拍, 0.5拍など）
       float delayBeats = noteStartBeats[currentNoteIndex] - (float)currentBeat;
-      // 時間（ミリ秒）に変換
       unsigned long delayMs = (unsigned long)(delayBeats * currentBeatLengthMs);
       
-      // パルス受信時から所定の遅延時間が経過したら出力する
-      // ※ delayMs が 0 の場合（拍の頭の音符）は、now - tickStartTime >= 0 となり即座に出力される
       if (now - tickStartTime >= delayMs) {
         sendNoteData(currentNoteIndex);
         currentNoteIndex++;
@@ -307,14 +297,12 @@ void loop() {
     }
   }
 
-  // 再生終了判定
   if (active && currentNoteIndex >= NOTE_COUNT) {
     active = false;
     digitalWrite(STATUS_PIN, LOW);
     ledPatternActive = false;
   }
 
-  // LEDのパターン点滅制御
   if (ledPatternActive) {
     if (ledSingleOffAt != 0) {
       if (now >= ledSingleOffAt) {
@@ -339,6 +327,33 @@ void loop() {
       }
     }
   }
+
+  if (active && currentNoteIndex > 0) {
+
+    int playingIdx = currentNoteIndex - 1;
+    
+    if (velocities[playingIdx] > 0.0) {
+
+      float startBeatOffset = noteStartBeats[playingIdx] - (float)currentBeat;
+      long startMs = (long)(startBeatOffset * currentBeatLengthMs);
+      long durationMs = (long)(beats[playingIdx] * currentBeatLengthMs);
+      
+      long elapsedMs = (long)(now - tickStartTime);
+      
+
+      long gap = (durationMs > 100) ? 50 : (long)(durationMs / 2.0);
+
+      if (elapsedMs >= startMs && elapsedMs < (startMs + durationMs - gap)) {
+        digitalWrite(PIN_EYE_LED, HIGH);
+      } else {
+        digitalWrite(PIN_EYE_LED, LOW);
+      }
+    } else {
+      digitalWrite(PIN_EYE_LED, LOW); 
+    }
+  } else {
+    digitalWrite(PIN_EYE_LED, LOW); 
+  }
 }
 
 void sendNoteData(int index) {
@@ -350,4 +365,5 @@ void sendNoteData(int index) {
 
   Serial.print(" ");
   Serial.println(velocities[index], 0);
+  
 }
