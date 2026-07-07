@@ -10,7 +10,6 @@
 #define SERIAL_BAUD  115200
 
 ArduinoLEDMatrix matrix;
-
 const uint8_t CLIENT_FRAME_COUNT = 4;
 
 uint8_t clientFrames[CLIENT_FRAME_COUNT][8][12] = {
@@ -57,7 +56,6 @@ uint8_t clientFrames[CLIENT_FRAME_COUNT][8][12] = {
 };
 
 const uint8_t VOLTAGE_FRAME_COUNT = 6;
-
 uint8_t voltageFrames[VOLTAGE_FRAME_COUNT][8][12] = {
   {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -125,7 +123,6 @@ const int ID = CLIENT_ID;
 bool active = false;
 
 const int NOTE_COUNT = 37;
-
 const char* noteNames[NOTE_COUNT] = {
   "C4", "D4", "E4", "F4", "E4", "D4", "C4", "C4",
   "E4", "F4", "G4", "A4", "G4", "F4", "E4", "E4",
@@ -156,7 +153,6 @@ int currentBeat = -1;
 int currentNoteIndex = 0;
 unsigned long tickStartTime = 0;
 bool lastInRange = false;
-
 float currentBeatLengthMs = 0.0;
 
 const uint8_t STATUS_PIN = PIN_LED;
@@ -166,7 +162,6 @@ int ledBlinksRemaining = 0;
 unsigned long ledLastToggleMs = 0;
 unsigned long ledBlinkIntervalMs = 40UL;
 unsigned long ledSingleOffAt = 0;
-
 const int VOLTAGE_THRES_COUNT = 41;
 
 int getClientFrameIndex() {
@@ -197,13 +192,12 @@ void renderVoltageMeter(int sensorVal) {
   uint8_t mergedFrame[8][12];
   const int clientFrameIndex = getClientFrameIndex();
   const int voltageFrameIndex = getVoltageMeterIndex(sensorVal);
-
   for (int row = 0; row < 8; row++) {
     for (int col = 0; col < 12; col++) {
-      mergedFrame[row][col] = clientFrames[clientFrameIndex][row][col] | voltageFrames[voltageFrameIndex][row][col];
+      mergedFrame[row][col] = clientFrames[clientFrameIndex][row][col] |
+                              voltageFrames[voltageFrameIndex][row][col];
     }
   }
-
   matrix.renderBitmap(mergedFrame, 8, 12);
 }
 
@@ -253,11 +247,9 @@ void loop() {
   int bpmValue = analogRead(PIN_BPM_IN);
   float bpm = 60.0 + ((float)bpmValue * (180.0 / 1023.0));
   currentBeatLengthMs = (60.0 / bpm) * 1000.0;
-
   bool inRange = sensorValue >= (ID * 205 - VOLTAGE_THRES_COUNT);
   static unsigned long lastTickDetectedMs = 0; 
   bool tickDetected = false;
-
   if (inRange && !lastInRange) {
     if (now > 1000 && (now - lastTickDetectedMs > 150)) {
       tickDetected = true;
@@ -276,9 +268,14 @@ void loop() {
       currentNoteIndex = 0;
       tickStartTime = now;
     } else {
-      while (currentNoteIndex < NOTE_COUNT && noteStartBeats[currentNoteIndex] < (float)(currentBeat + 1)) {
-        sendNoteData(currentNoteIndex);
-        currentNoteIndex++;
+      // 安全対策：条件を満たさなくなった段階で確実にループを抜けるよう修正
+      while (currentNoteIndex < NOTE_COUNT) {
+        if (noteStartBeats[currentNoteIndex] < (float)(currentBeat + 1)) {
+          sendNoteData(currentNoteIndex);
+          currentNoteIndex++;
+        } else {
+          break; 
+        }
       }
       currentBeat++;
       tickStartTime = now;
@@ -329,27 +326,21 @@ void loop() {
   }
 
   if (active && currentNoteIndex > 0) {
-
     int playingIdx = currentNoteIndex - 1;
-    
     if (velocities[playingIdx] > 0.0) {
-
       float startBeatOffset = noteStartBeats[playingIdx] - (float)currentBeat;
       long startMs = (long)(startBeatOffset * currentBeatLengthMs);
       long durationMs = (long)(beats[playingIdx] * currentBeatLengthMs);
       
       long elapsedMs = (long)(now - tickStartTime);
-      
-
       long gap = (durationMs > 100) ? 50 : (long)(durationMs / 2.0);
-
       if (elapsedMs >= startMs && elapsedMs < (startMs + durationMs - gap)) {
         digitalWrite(PIN_EYE_LED, HIGH);
       } else {
         digitalWrite(PIN_EYE_LED, LOW);
       }
     } else {
-      digitalWrite(PIN_EYE_LED, LOW); 
+      digitalWrite(PIN_EYE_LED, LOW);
     }
   } else {
     digitalWrite(PIN_EYE_LED, LOW); 
@@ -359,11 +350,9 @@ void loop() {
 void sendNoteData(int index) {
   Serial.print(noteNames[index]);
   Serial.print(" ");
-
   float durationMs = beats[index] * currentBeatLengthMs;
   Serial.print(durationMs, 0);
 
   Serial.print(" ");
   Serial.println(velocities[index], 0);
-  
 }
