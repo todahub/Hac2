@@ -268,7 +268,6 @@ void loop() {
       currentNoteIndex = 0;
       tickStartTime = now;
     } else {
-      // 安全対策：条件を満たさなくなった段階で確実にループを抜けるよう修正
       while (currentNoteIndex < NOTE_COUNT) {
         if (noteStartBeats[currentNoteIndex] < (float)(currentBeat + 1)) {
           sendNoteData(currentNoteIndex);
