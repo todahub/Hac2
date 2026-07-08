@@ -1,13 +1,11 @@
 #include <Arduino.h>
 #include "Arduino_LED_Matrix.h"
 
-#define CLIENT_ID 2
-#define ROUND_DELAY_BEATS ((CLIENT_ID - 1) * 4)
+#define CLIENT_ID 1
 
 // ピン配置
 #define PIN_SYNC_IN A0  // 前の筐体からの信号入力（アナログA0ピン）
 #define PIN_BPM_IN   A1  // BPM調節用ボリューム（アナログA1ピン）
-#define PIN_SYNC_OUT 9   // 次の筐体への信号出力（PWM 9番ピン）
 #define PIN_LED      13
 #define SERIAL_BAUD  115200
 
@@ -152,18 +150,21 @@ float velocities[NOTE_COUNT] = {
   1.0, 0.0, 1.0, 0.0, 1.0
 };
 
-int currentNoteIndex = 0;
-int lastSentIndex = -1;
 float noteStartBeats[NOTE_COUNT];
-int ticksReceived = 0;
+
+// 再生・状態管理用変数
+int currentBeat = -1;
+int currentNoteIndex = 0;
 unsigned long tickStartTime = 0;
 bool lastInRange = false;
 
-unsigned long triggerPulseStartMs = 0;
-bool triggerPulseActive = false;
-bool triggerSent = false; 
-
 float currentBeatLengthMs = 0.0;
+
+// 終了インターバル（クールダウン）制御
+bool cooldownActive = false;
+unsigned long cooldownEndMs = 0;
+const float ENTRY_DELAY_BEATS = 4.0; // 各筐体の進入時間差（4拍遅れ）
+const float SYSTEM_MARGIN_BEATS = 4.0; // 4台目終了後の余白（1小節分＝4拍）
 
 const uint8_t STATUS_PIN = PIN_LED;
 bool ledPatternActive = false;
@@ -236,8 +237,6 @@ void sendNoteData(int index);
 void setup() {
   Serial.begin(SERIAL_BAUD);
   pinMode(STATUS_PIN, OUTPUT);
-  pinMode(PIN_SYNC_OUT, OUTPUT);
-  analogWrite(PIN_SYNC_OUT, 0); 
 
   noteStartBeats[0] = 0.0;
   for (int i = 1; i < NOTE_COUNT; i++) {
@@ -257,18 +256,16 @@ void loop() {
   int sensorValue = analogRead(PIN_SYNC_IN);
   renderVoltageMeter(sensorValue);
 
-  // BPM入力ピンのバッティングを解消
   int bpmValue = analogRead(PIN_BPM_IN);
   float bpm = 60.0 + ((float)bpmValue * (180.0 / 1023.0));
   currentBeatLengthMs = (60.0 / bpm) * 1000.0;
 
-  // 入力信号IDがID以上の時に反応（クライアント機IDがnなら、信号n,n+1,n+2,...で再生を進める）
   bool inRange = sensorValue >= (ID * 205 - VOLTAGE_THRES_COUNT);
-
   static unsigned long lastTickDetectedMs = 0;
   bool tickDetected = false;
 
-  if (inRange && !lastInRange) {
+  // インターバル期間中でなければパルス立ち上がりを検出
+  if (!cooldownActive && inRange && !lastInRange) {
     if (now > 1000 && (now - lastTickDetectedMs > 150)) {
       tickDetected = true;
       lastTickDetectedMs = now;
@@ -282,54 +279,62 @@ void loop() {
 
     if (!active) {
       active = true;
+      currentBeat = 0;
       currentNoteIndex = 0;
-      lastSentIndex = -1;
-      ticksReceived = 1;
       tickStartTime = now;
-      triggerSent = false; 
     } else {
-      ticksReceived++;
-      tickStartTime = now;
-    }
-  }
-
-  if (active) {
-    unsigned long elapsedMs = now - tickStartTime;
-    
-    // 💡【修正】progress の 0.99f キャップを外し、時間が進むように修正
-    float progress = (float)elapsedMs / currentBeatLengthMs;
-
-    // 現在の合計経過拍数
-    float currentTotalBeats = static_cast<float>(ticksReceived - 1) + progress;
-
-    // 8拍を超えたら次の筐体へ信号を送る
-    if (!triggerSent && currentTotalBeats >= 8.0f && ID < 4) {
-      int nextTargetAnalog = (ID + 1) * 205;
-      analogWrite(PIN_SYNC_OUT, nextTargetAnalog / 4);
-      triggerPulseStartMs = now;
-      triggerPulseActive = true;
-      triggerSent = true; 
-    }
-
-    while (currentNoteIndex < NOTE_COUNT && currentTotalBeats >= (noteStartBeats[currentNoteIndex] + beats[currentNoteIndex])) {
-      currentNoteIndex++;
-    }
-
-    if (currentNoteIndex < NOTE_COUNT) {
-      if (currentNoteIndex != lastSentIndex) {
+      while (currentNoteIndex < NOTE_COUNT && noteStartBeats[currentNoteIndex] < (float)(currentBeat + 1)) {
         sendNoteData(currentNoteIndex);
-        lastSentIndex = currentNoteIndex;
+        currentNoteIndex++;
       }
-    } else {
-      active = false;
-      digitalWrite(STATUS_PIN, LOW);
-      ledPatternActive = false;
+      currentBeat++;
+      tickStartTime = now;
     }
   }
 
-  if (triggerPulseActive && now - triggerPulseStartMs >= 100) {
-    analogWrite(PIN_SYNC_OUT, 0);
-    triggerPulseActive = false;
+  if (active && currentNoteIndex < NOTE_COUNT) {
+    if (noteStartBeats[currentNoteIndex] < (float)(currentBeat + 1)) {
+      float delayBeats = noteStartBeats[currentNoteIndex] - (float)currentBeat;
+      unsigned long delayMs = (unsigned long)(delayBeats * currentBeatLengthMs);
+      
+      if (now - tickStartTime >= delayMs) {
+        sendNoteData(currentNoteIndex);
+        currentNoteIndex++;
+      }
+    }
+  }
+
+  // 再生終了時の停止・インターバル移行判定
+  if (active && currentNoteIndex >= NOTE_COUNT) {
+    active = false;
+    digitalWrite(STATUS_PIN, LOW);
+    ledPatternActive = false;
+    
+    // 曲終了コードの送出
+    Serial.println("END 0 0");
+
+    // クールダウン（合唱全体の終了待ち）に移行
+    cooldownActive = true;
+    
+    // 自機終了から4台目終了までの残り拍数（(4 - 自機ID) * 進入遅れ）に、終了後の余白数秒分（SYSTEM_MARGIN_BEATS）を加算
+    float remainingCooldownBeats = ((4.0 - (float)CLIENT_ID) * ENTRY_DELAY_BEATS) + SYSTEM_MARGIN_BEATS;
+    cooldownEndMs = now + (unsigned long)(remainingCooldownBeats * currentBeatLengthMs);
+  }
+
+  // クールダウン（インターバル）監視処理
+  if (cooldownActive) {
+    if (now >= cooldownEndMs) {
+      cooldownActive = false;
+      
+      // CLIENT_ID 1（親機）の場合は、自動的に次の演奏サイクルを開始
+      if (CLIENT_ID == 1) {
+        active = true;
+        currentBeat = 0;
+        currentNoteIndex = 0;
+        tickStartTime = now;
+        startLedPattern(CLIENT_ID, now);
+      }
+    }
   }
 
   if (ledPatternActive) {
