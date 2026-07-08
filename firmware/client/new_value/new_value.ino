@@ -121,6 +121,8 @@ uint8_t voltageFrames[VOLTAGE_FRAME_COUNT][8][12] = {
 
 const int ID = CLIENT_ID;
 bool active = false;
+bool stopLoopRequested = false;
+bool sawId4BeforeStop = false;
 
 const int NOTE_COUNT = 37;
 const char* noteNames[NOTE_COUNT] = {
@@ -262,7 +264,15 @@ void loop() {
     int rxId = getReceivedId(sensorValue);
     startLedPattern(rxId, now);
 
-    if (!active) {
+    if (rxId == 4) {
+      sawId4BeforeStop = true;
+    } else if (rxId == 1 && sawId4BeforeStop) {
+      stopLoopRequested = true;
+      sawId4BeforeStop = false;
+      Serial.println("STOP REQUESTED");
+    }
+
+    if (!active && !stopLoopRequested) {
       active = true;
       currentBeat = 0;
       currentNoteIndex = 0;

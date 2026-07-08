@@ -123,6 +123,8 @@ uint8_t voltageFrames[VOLTAGE_FRAME_COUNT][8][12] = {
 
 const int ID = CLIENT_ID;
 bool active = false;
+bool stopLoopRequested = false;
+bool sawId4BeforeStop = false;
 
 const int NOTE_COUNT = 37;
 
@@ -277,7 +279,15 @@ void loop() {
     int rxId = getReceivedId(sensorValue);
     startLedPattern(rxId, now);
 
-    if (!active) {
+    if (rxId == 4) {
+      sawId4BeforeStop = true;
+    } else if (rxId == 1 && sawId4BeforeStop) {
+      stopLoopRequested = true;
+      sawId4BeforeStop = false;
+      Serial.println("STOP REQUESTED");
+    }
+
+    if (!active && !stopLoopRequested) {
       active = true;
       currentBeat = 0;
       currentNoteIndex = 0;
@@ -314,7 +324,7 @@ void loop() {
     Serial.println("END 0 0");
 
     // クールダウン（合唱全体の終了待ち）に移行
-    cooldownActive = true;
+    cooldownActive = !stopLoopRequested;
     
     // 自機終了から4台目終了までの残り拍数（(4 - 自機ID) * 進入遅れ）に、終了後の余白数秒分（SYSTEM_MARGIN_BEATS）を加算
     float remainingCooldownBeats = ((4.0 - (float)CLIENT_ID) * ENTRY_DELAY_BEATS) + SYSTEM_MARGIN_BEATS;
@@ -327,7 +337,7 @@ void loop() {
       cooldownActive = false;
       
       // CLIENT_ID 1（親機）の場合は、自動的に次の演奏サイクルを開始
-      if (CLIENT_ID == 1) {
+      if (CLIENT_ID == 1 && !stopLoopRequested) {
         active = true;
         currentBeat = 0;
         currentNoteIndex = 0;
