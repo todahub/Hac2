@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "Arduino_LED_Matrix.h"
 
-#define CLIENT_ID 1
+#define CLIENT_ID 2
 
 #define PIN_SYNC_IN A0  
 #define PIN_BPM_IN   A1  

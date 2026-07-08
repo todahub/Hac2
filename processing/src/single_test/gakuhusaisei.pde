@@ -150,7 +150,7 @@ class SynthString {
 
     sum.patch(bodyFilter).patch(ampEnv).patch(masterGain).patch(out);
 
-    masterGain.setValue(5.0f);
+    masterGain.setValue(3.0f);
   }
 
   float applySemitoneOffset(float freq, float semitoneOffset) {
