@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "Arduino_LED_Matrix.h"
 
-#define CLIENT_ID 1
+#define CLIENT_ID 2
 #define ROUND_DELAY_BEATS ((CLIENT_ID - 1) * 4)
 
 // ピン配置

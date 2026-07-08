@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "Arduino_LED_Matrix.h"
 
-#define CLIENT_ID 1
+#define CLIENT_ID 2
 
 // ピン配置
 #define PIN_SYNC_IN A0  // 前の筐体からの信号入力（アナログA0ピン）

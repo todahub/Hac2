@@ -15,7 +15,7 @@ const unsigned long PULSE_WIDTH_MS = 100UL;
 const unsigned long DEBUG_INTERVAL_MS = 250UL;
 
 // クライアントの台数（テスト時は2台、本番時は4台に書き換えて使用します）
-const unsigned int NUM_CLIENTS = 2;
+const unsigned int NUM_CLIENTS = 4;
 
 // 各 ID に対応する出力電圧の中点 (V)
 const float MID_VOLTAGES[] = {
@@ -104,22 +104,15 @@ void loop() {
 
     // 送信IDおよび送信ビート数の更新ロジック
     // 台数 N のとき、
-    // IDが1からN-1まで: 各IDを8回ずつ送信
-    // IDがNに到達: Nを64回送信し、終了後に1に戻る
-    bool idShifted = false;
-    
+    // IDが1からN-1まで: 各IDを8回ずつ送信して次のIDへ進む
+    // IDがNに到達したら、そのままNを維持する
     if (currentId < NUM_CLIENTS) {
       if (beatCountInSegment >= 8) {
         currentId++;
         beatCountInSegment = 0;
-        idShifted = true;
       }
-    } else { // currentId == NUM_CLIENTS
-      if (beatCountInSegment >= 64) {
-        currentId = 1;
-        beatCountInSegment = 0;
-        idShifted = true;
-      }
+    } else if (beatCountInSegment >= 8) {
+      beatCountInSegment = 0;
     }
 
     // 対応するIDの電圧をDACから出力
