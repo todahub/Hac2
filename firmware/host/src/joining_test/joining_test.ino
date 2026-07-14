@@ -1,10 +1,14 @@
 #include <Arduino.h>
 
-// ピン割り当て
-const uint8_t DAC_PIN = DAC;       // DAC 出力ピン (UNO R4 では A0 に割り当てられます)
-const uint8_t POT_PIN = A1;        // テンポ入力（可変抵抗）
+// Pins
+// Note: On some boards (e.g. UNO R4 WiFi) the DAC is available on A0.
+// To avoid conflict, use a different analog pin for the potentiometer.
+const uint8_t DAC_PIN = DAC;       // DAC 出力ピン (ボード依存で A0 にマップされることがある)
+const uint8_t POT_PIN = A1;       // テンポ入力（可変抵抗） - A1 を使用
+const uint8_t SWITCH_START_PIN = D4; // 再生開始ボタン（内部プルアップ, ACTIVE LOW）
+const uint8_t SWITCH_STOP_PIN = D5;  // 再生停止ボタン（内部プルアップ, ACTIVE LOW）
 
-// BPM マッピング設定
+// BPM マッピング
 const uint16_t MIN_BPM = 60;
 const uint16_t MAX_BPM = 240;
 const float MIN_INPUT_VOLTAGE = 0.0f;
@@ -14,31 +18,49 @@ const float MAX_INPUT_VOLTAGE = 5.0f;
 const unsigned long PULSE_WIDTH_MS = 100UL;
 const unsigned long DEBUG_INTERVAL_MS = 250UL;
 
-// クライアントの台数（テスト時は2台、本番時は4台に書き換えて使用します）
-const unsigned int NUM_CLIENTS = 4;
-
-// 各 ID に対応する出力電圧の中点 (V)
+// Valutage（ID に対応する中点電圧）
 const float MID_VOLTAGES[] = {
-  (0.51f + 1.50f) / 2.0f, // ID 1 中点電圧 ~1.005 V
-  (1.51f + 2.50f) / 2.0f, // ID 2 中点電圧 ~2.005 V
-  (2.51f + 3.50f) / 2.0f, // ID 3 中点電圧 ~3.005 V
-  (3.51f + 4.50f) / 2.0f  // ID 4 中点電圧 ~4.005 V
+  (0.51f + 1.50f) / 2.0f, // ID 1 midpoint ~1.005 V
+  (1.51f + 2.50f) / 2.0f, // ID 2 midpoint ~2.005 V
+  (2.51f + 3.50f) / 2.0f, // ID 3 midpoint ~3.005 V
+  (3.51f + 4.50f) / 2.0f  // ID 4 midpoint ~4.005 V
 };
 const unsigned int NUM_IDS = sizeof(MID_VOLTAGES) / sizeof(MID_VOLTAGES[0]);
 
-// シーケンス・タイミング管理用変数
+// 呼び出すクライアントIDの順番（1-based）
+int clientSequence[] = {1, 2, 3, 4};
+const unsigned int SEQ_LEN = sizeof(clientSequence) / sizeof(clientSequence[0]);
+const unsigned long BEATS_PER_ID = 8UL;
+unsigned long beatCount = 0;
+bool stopRequested = false;
+
+// タイミング管理
 unsigned long lastBeatStartMs = 0;
 bool pulseActive = false;
 unsigned long lastDebugPrintMs = 0;
 
-// ビート数カウントおよび現在の発信ID
-unsigned long beatCountInSegment = 0; // 現在のID区間での送信数
-unsigned int currentId = 1;          // 現在送信中のID
+// 再生制御（タクトスイッチ）
+bool playing = false; // 起動時は停止状態から開始
+// スイッチ個別のデバウンス管理
+int lastStartSwitchState = HIGH;
+int lastStopSwitchState = HIGH;
+int stableStart = HIGH;
+int stableStop = HIGH;
+unsigned long lastDebounceTimeStart = 0;
+unsigned long lastDebounceTimeStop = 0;
+const unsigned long DEBOUNCE_MS = 50UL;
 
-// 現在の出力電圧（デバッグ表示用）
+// LED インジケータ
+const uint8_t STATUS_PIN = LED_BUILTIN;
+bool ledPatternActive = false;
+bool ledState = false;
+int ledBlinksRemaining = 0;
+unsigned long ledLastToggleMs = 0;
+unsigned long ledBlinkIntervalMs = 60UL; // 高速明滅間隔 (ms)
+unsigned long ledSingleOffAt = 0; // 単発点灯用終了時刻
+// 現在の出力電圧（デバッグ用）
 float currentOutVoltage = 0.0f;
 
-// 電圧計算および変換関数
 float readInputVoltage(int rawValue) {
   return static_cast<float>(rawValue) * 5.0f / 1023.0f;
 }
@@ -53,7 +75,7 @@ int voltageToBpm(float voltage) {
 int voltageToDacValue(float voltage) {
   if (voltage <= 0.0f) return 0;
   const float maxVoltage = 5.0f;
-  const int maxDac = (1 << 12) - 1; // 12-bit DAC -> 4095
+  const int maxDac = (1 << 12) - 1; // 12-bit -> 4095
   int v = (int)roundf((voltage / maxVoltage) * maxDac);
   if (v < 0) v = 0;
   if (v > maxDac) v = maxDac;
@@ -65,79 +87,166 @@ void setup() {
   analogWriteResolution(12);
   pinMode(DAC_PIN, OUTPUT);
   analogWrite(DAC_PIN, 0);
-  
-  // 内蔵LEDをビートインジケータとして使用
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, LOW);
-
+  // Use internal pull-up resistors and read as ACTIVE LOW
+  pinMode(SWITCH_START_PIN, INPUT_PULLUP);
+  pinMode(SWITCH_STOP_PIN, INPUT_PULLUP);
+  pinMode(STATUS_PIN, OUTPUT);
+  digitalWrite(STATUS_PIN, LOW);
   lastBeatStartMs = millis();
-  Serial.println("====== JOINING TEST HOST STARTED ======");
-  Serial.print("Configured NUM_CLIENTS = ");
-  Serial.println(NUM_CLIENTS);
-  Serial.println("Playing automatically at boot.");
+}
+
+void startLedPattern(int id, unsigned long now) {
+  if (id <= 1) {
+    // 単発点灯: PULSE_WIDTH_MS の間点灯
+    digitalWrite(STATUS_PIN, HIGH);
+    ledSingleOffAt = now + PULSE_WIDTH_MS;
+    ledPatternActive = true;
+    ledState = true;
+    ledBlinksRemaining = 0;
+  } else {
+    // 複数回点滅: id 回の点滅（オン/オフを1回とカウント）
+    ledBlinksRemaining = id;
+    ledPatternActive = true;
+    ledState = true;
+    digitalWrite(STATUS_PIN, HIGH);
+    ledLastToggleMs = now;
+  }
 }
 
 void loop() {
   const unsigned long now = millis();
-  
-  // 可変抵抗からBPMを取得
   const int potRaw = analogRead(POT_PIN);
   const float potVoltage = readInputVoltage(potRaw);
   const int bpm = voltageToBpm(potVoltage);
   const unsigned long beatIntervalMs = 60000UL / static_cast<unsigned long>(bpm);
 
-  // デバッグ情報の出力（250msごと）
+  // スイッチ読み取り（デバウンス）: START ボタン
+  int startReading = digitalRead(SWITCH_START_PIN);
+  if (startReading != lastStartSwitchState) {
+    lastDebounceTimeStart = now;
+  }
+  if ((now - lastDebounceTimeStart) > DEBOUNCE_MS) {
+    if (startReading != stableStart) {
+      stableStart = startReading;
+      if (stableStart == LOW) {
+        // START 押下 (ACTIVE LOW) -> 再生を開始
+        if (!playing) {
+          playing = true;
+          lastBeatStartMs = now;
+          Serial.println("Playing=ON");
+        }
+      }
+    }
+  }
+  lastStartSwitchState = startReading;
+
+  // STOP ボタン
+  int stopReading = digitalRead(SWITCH_STOP_PIN);
+  if (stopReading != lastStopSwitchState) {
+    lastDebounceTimeStop = now;
+  }
+  if ((now - lastDebounceTimeStop) > DEBOUNCE_MS) {
+    if (stopReading != stableStop) {
+      stableStop = stopReading;
+      if (stableStop == LOW) {
+        // STOP 押下 (ACTIVE LOW) -> 出力を停止
+        if (playing) {
+          playing = false;
+          stopRequested = false;
+          beatCount = 0;
+          analogWrite(DAC_PIN, 0);
+          pulseActive = false;
+          currentOutVoltage = 0.0f;
+          ledPatternActive = false;
+          digitalWrite(STATUS_PIN, LOW);
+          Serial.println("Playing=OFF");
+        }
+      }
+    }
+  }
+  lastStopSwitchState = stopReading;
+
+  // 停止中はビート生成をスキップ（デバッグは継続）
+  if (!playing) {
+    if (now - lastDebugPrintMs >= DEBUG_INTERVAL_MS) {
+      Serial.print("POT raw="); Serial.print(potRaw);
+      Serial.print(", voltage="); Serial.print(potVoltage, 3);
+      Serial.print("V, bpm="); Serial.print(bpm);
+      Serial.print(", Playing="); Serial.print(playing ? "ON" : "OFF");
+      Serial.print(", outV="); Serial.println(currentOutVoltage, 3);
+      lastDebugPrintMs = now;
+    }
+    return;
+  }
+
   if (now - lastDebugPrintMs >= DEBUG_INTERVAL_MS) {
     Serial.print("POT raw="); Serial.print(potRaw);
     Serial.print(", voltage="); Serial.print(potVoltage, 3);
     Serial.print("V, bpm="); Serial.print(bpm);
-    Serial.print(", Sending ID="); Serial.print(currentId);
-    Serial.print(" (Beat "); Serial.print(beatCountInSegment + 1);
-    Serial.print("), OutV="); Serial.println(currentOutVoltage, 3);
+    Serial.print(", Playing="); Serial.print(playing ? "ON" : "OFF");
+    Serial.print(", outV="); Serial.println(currentOutVoltage, 3);
     lastDebugPrintMs = now;
   }
 
-  // ビート開始タイミングの判定
-  if (!pulseActive && (now - lastBeatStartMs) >= beatIntervalMs) {
+  if (!pulseActive && now - lastBeatStartMs >= beatIntervalMs) {
+    // ビートの始まり: 現在のシーケンスID の電圧を出力
     lastBeatStartMs = now;
     pulseActive = true;
 
-    // 送信IDおよび送信ビート数の更新ロジック
-    // 台数 N のとき、
-    // IDが1からN-1まで: 各IDを8回ずつ送信して次のIDへ進む
-    // IDがNに到達したら、そのままNを維持する
-    if (currentId < NUM_CLIENTS) {
-      if (beatCountInSegment >= 8) {
-        currentId++;
-        beatCountInSegment = 0;
-      }
-    } else if (beatCountInSegment >= 8) {
-      beatCountInSegment = 0;
-    }
+    const unsigned long sequenceSlot = beatCount / BEATS_PER_ID;
+    const unsigned long clampedSlot = (sequenceSlot >= SEQ_LEN) ? (SEQ_LEN - 1) : sequenceSlot;
+    int id = clientSequence[clampedSlot];
+    if (id < 1) id = 1;
+    if ((unsigned)id > NUM_IDS) id = NUM_IDS;
 
-    // 対応するIDの電圧をDACから出力
-    if (currentId <= NUM_IDS) {
-      float outVoltage = MID_VOLTAGES[currentId - 1];
-      int dacValue = voltageToDacValue(outVoltage);
-      analogWrite(DAC_PIN, dacValue);
-      currentOutVoltage = outVoltage;
-      
-      // シリアルへ発信ログを出力
-      Serial.print("Beat Pulse ID="); Serial.print(currentId);
-      Serial.print(", voltage="); Serial.print(outVoltage, 3);
-      Serial.print("V, dacValue="); Serial.print(dacValue);
-      Serial.print(", beatNum="); Serial.println(beatCountInSegment + 1);
-    }
+    float outVoltage = MID_VOLTAGES[id - 1];
+    int dacValue = voltageToDacValue(outVoltage);
+    analogWrite(DAC_PIN, dacValue);
+    currentOutVoltage = outVoltage;
 
-    digitalWrite(LED_BUILTIN, HIGH); // パルス出力中にLEDを点灯
-    beatCountInSegment++;
+    Serial.print("Beat, ID="); Serial.print(id);
+    Serial.print(", outV="); Serial.print(outVoltage, 3);
+    Serial.print("V, dac="); Serial.println(dacValue);
+    // LED パターン開始（発信に合わせる）
+    startLedPattern(id, now);
+
+    beatCount++;
   }
 
-  // パルス幅（100ms）経過後の出力立ち下げ
-  if (pulseActive && (now - lastBeatStartMs) >= PULSE_WIDTH_MS) {
+  if (pulseActive && now - lastBeatStartMs >= PULSE_WIDTH_MS) {
+    // パルス終了: 出力を0にしてシーケンスを進める
     analogWrite(DAC_PIN, 0);
     currentOutVoltage = 0.0f;
     pulseActive = false;
-    digitalWrite(LED_BUILTIN, LOW); // LED消灯
+  }
+
+  // LED パターン実行管理
+  if (ledPatternActive) {
+    // 単発点灯終了判定
+    if (ledSingleOffAt != 0) {
+      if (now >= ledSingleOffAt) {
+        digitalWrite(STATUS_PIN, LOW);
+        ledSingleOffAt = 0;
+        ledPatternActive = false;
+        ledState = false;
+      }
+    } else {
+      // 複数点滅のトグル処理
+      if (now - ledLastToggleMs >= ledBlinkIntervalMs) {
+        ledLastToggleMs += ledBlinkIntervalMs;
+        ledState = !ledState;
+        digitalWrite(STATUS_PIN, ledState ? HIGH : LOW);
+        if (!ledState) {
+          // 1サイクル（ON->OFF）が完了したらカウントを減らす
+          if (ledBlinksRemaining > 0) ledBlinksRemaining--;
+          if (ledBlinksRemaining <= 0) {
+            // パターン終了
+            digitalWrite(STATUS_PIN, LOW);
+            ledPatternActive = false;
+            ledState = false;
+          }
+        }
+      }
+    }
   }
 }

@@ -1,0 +1,50 @@
+POT raw=0, voltage=0.000V, bpm=60, Playing=OFF, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=OFF, outV=0.000
+Playing=ON
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+Beat, ID=1, outV=1.005V, dac=823
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+Beat, ID=1, outV=1.005V, dac=823
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+Beat, ID=1, outV=1.005V, dac=823
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+Beat, ID=1, outV=1.005V, dac=823
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+Beat, ID=1, outV=1.005V, dac=823
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+Beat, ID=1, outV=1.005V, dac=823
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+Beat, ID=1, outV=1.005V, dac=823
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+Beat, ID=1, outV=1.005V, dac=823
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+Beat, ID=2, outV=2.005V, dac=1642
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000
+POT raw=0, voltage=0.000V, bpm=60, Playing=ON, outV=0.000

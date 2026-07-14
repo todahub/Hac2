@@ -1,0 +1,126 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{CJKutf8}
+\usepackage[european,siunitx]{circuitikz}
+\usetikzlibrary{arrows.meta,calc,fit,positioning,backgrounds}
+
+\begin{document}
+\begin{CJK*}{UTF8}{min}
+\begin{circuitikz}[
+  line cap=round,
+  line join=round,
+  >=Latex,
+  every node/.style={font=\small},
+  american
+]
+\ctikzset{bipoles/length=0.95cm}
+
+\begin{scope}[on background layer]
+  \draw[step=0.5, dotted, gray!18] (-0.5,-0.5) grid (16.8,10.4);
+\end{scope}
+
+% 共有バス
+\coordinate (vccbus) at (0.9,5.20);
+\coordinate (sigbus) at (0.9,4.55);
+\coordinate (gndbus) at (0.9,3.90);
+
+\draw[very thick] (vccbus) -- (11.7,5.20);
+\draw[very thick] (sigbus) -- (11.7,4.55);
+\draw[very thick] (gndbus) -- (11.7,3.90);
+
+% 左側のクライアント
+\draw[very thick] (0.05,7.25) .. controls (-0.28,6.70) and (-0.28,5.10) .. (0.05,4.55);
+\node[anchor=west] at (0.20,6.60) {クライアント};
+\node[draw, rounded corners=2pt, minimum width=3.1cm, minimum height=1.55cm, align=center] (client) at (1.95,6.00) {Arduino};
+\draw (client.south) -- ++(0,-0.78) coordinate (clientg);
+\draw (client.south east) -- ++(0,-0.40) coordinate (clients);
+\draw (clients) -- (sigbus -| clients);
+\draw (clientg) -- (gndbus -| clientg);
+
+% 上側のホスト Arduino と PC
+\node[draw, rounded corners=2pt, minimum width=4.45cm, minimum height=1.72cm, align=center] (topboard) at (5.55,6.00) {Arduino UNO\\R4 WiFi};
+\draw (topboard.north) -- ++(0,0.45) coordinate (topd2);
+\draw ($(topd2)+(0.07,0.12)$) to[led] ++(0.34,0);
+\draw (topd2) -- ++(1.95,0) coordinate (topledwire);
+\node[anchor=west] at ($(topd2)+(0.25,0.30)$) {D2};
+
+\node[draw, rounded corners=2pt, minimum width=2.35cm, minimum height=1.45cm, align=center] (pc) at (10.25,6.00) {PC};
+\draw (topboard.east) -- node[above]{USB} (pc.west);
+\node[anchor=south] at ($(pc.north)+(0,0.05)$) {スピーカ};
+\draw ($(pc.north)+(0,0.30)$) -- ++(0,0.42);
+\draw ($(pc.north)+(0,0.74)$) .. controls +(-0.22,0.16) and +(-0.22,-0.16) .. ++(0,0);
+\draw ($(pc.north)+(0,0.66)$) .. controls +(0.20,0.20) and +(0.20,-0.20) .. ++(0,0);
+
+% 上側ホストの端子表現
+\coordinate (topA0) at ($(topboard.south west)!0.34!(topboard.south east)$);
+\coordinate (topGND) at ($(topboard.south west)!0.56!(topboard.south east)$);
+\coordinate (topVCC) at ($(topboard.south west)!0.80!(topboard.south east)$);
+\draw (topA0) -- ++(0,-0.52) coordinate (topA0drop);
+\draw (topGND) -- ++(0,-0.80) coordinate (topGNDdrop);
+\draw (topVCC) -- ++(0,-0.52) coordinate (topVCCdrop);
+\draw (topA0drop) -- (sigbus -| topA0drop);
+\draw (topGNDdrop) -- (gndbus -| topGNDdrop);
+\draw (topVCCdrop) -- (vccbus -| topVCCdrop);
+\node[anchor=north] at (topA0) {A0};
+\node[anchor=north] at (topGND) {GND};
+\node[anchor=north] at (topVCC) {5V};
+
+% 下側のホスト回路
+\node[draw, rounded corners=4pt, minimum width=7.95cm, minimum height=3.85cm, inner sep=7pt] (hostbox) at (5.25,1.60) {};
+\node[anchor=north west] at ($(hostbox.north west)+(0.18,-0.12)$) {ホスト};
+
+\node[draw, rounded corners=2pt, minimum width=3.1cm, minimum height=1.35cm, align=center] (hostboard) at ($(hostbox.center)+(-1.00,-0.10)$) {Arduino UNO\\R4 WiFi};
+
+% BPM調整の可変抵抗
+\node[anchor=west] at ($(hostbox.west)+(0.36,0.85)$) {BPM調整};
+\draw ($(hostbox.west)+(0.62,0.52)$) to[vR, l={$10\,\mathrm{k\Omega}$}] ($(hostbox.west)+(2.35,0.52)$);
+\coordinate (potleft) at ($(hostbox.west)+(0.62,0.52)$);
+\coordinate (potright) at ($(hostbox.west)+(2.35,0.52)$);
+\coordinate (potwiper) at ($(hostbox.west)+(1.49,0.52)$);
+\draw (potleft) -- ++(0,-0.72) coordinate (potleftd);
+\draw (potright) -- ++(0,-0.72) coordinate (potrightd);
+\draw (potwiper) -- ++(0,-0.95) coordinate (potwiperd);
+\draw (potleftd) -- (vccbus -| potleftd);
+\draw (potrightd) -- (gndbus -| potrightd);
+\draw (potwiperd) -- ($(hostboard.north west)+(0.82,-0.10)$);
+\node[anchor=south] at (potwiper) {A1};
+
+% START / STOP のタクトスイッチ
+\draw ($(hostbox.east)+(-2.45,0.66)$) to[push button, l={START}] ($(hostbox.east)+(-1.00,0.66)$);
+\draw ($(hostbox.east)+(-2.45,-0.02)$) to[push button, l={STOP}] ($(hostbox.east)+(-1.00,-0.02)$);
+\coordinate (startleft) at ($(hostbox.east)+(-2.45,0.66)$);
+\coordinate (startright) at ($(hostbox.east)+(-1.00,0.66)$);
+\coordinate (stopleft) at ($(hostbox.east)+(-2.45,-0.02)$);
+\coordinate (stopright) at ($(hostbox.east)+(-1.00,-0.02)$);
+\draw (startleft) -- ++(0,-0.80) coordinate (startleftd);
+\draw (startright) -- ++(0,-0.80) coordinate (startrightd);
+\draw (stopleft) -- ++(0,-0.80) coordinate (stopleftd);
+\draw (stopright) -- ++(0,-0.80) coordinate (stoprightd);
+\draw (startleftd) -- (gndbus -| startleftd);
+\draw (stopleftd) -- (gndbus -| stopleftd);
+\draw (startrightd) -- ($(hostboard.south east)+(-0.82,-0.04)$);
+\draw (stoprightd) -- ($(hostboard.south east)+(-0.20,-0.04)$);
+\node[anchor=west] at ($(hostbox.east)+(-0.10,0.62)$) {D4};
+\node[anchor=west] at ($(hostbox.east)+(-0.10,-0.06)$) {D5};
+
+% D2 の LED と同じ見え方を下側にも用意
+\draw ($(hostboard.north east)+(-0.20,0.20)$) -- ++(0,0.52) coordinate (hostledup);
+\draw ($(hostboard.north east)+(-0.20,0.20)$) -- ++(1.35,0);
+\draw ($(hostboard.north east)+(-0.06,0.32)$) to[led] ++(0.32,0);
+
+% 右側の凡例
+\node[anchor=west] at (12.35,4.95) {可変抵抗};
+\draw (11.95,4.95) -- ++(0.62,0) to[vR] ++(0.85,0);
+\node[anchor=west] at (12.35,3.85) {LED};
+\draw (11.95,3.85) -- ++(0.62,0) to[led] ++(0.85,0);
+\node[anchor=west] at (12.35,2.75) {タクトスイッチ};
+\draw (11.95,2.75) -- ++(0.62,0) to[push button] ++(0.85,0);
+
+% 視覚的な接続強調
+\draw[very thick] (topledwire) .. controls +(0.30,-0.02) and +(0.35,0.14) .. (pc.north west);
+
+\end{circuitikz}
+\end{CJK*}
+\end{document}
